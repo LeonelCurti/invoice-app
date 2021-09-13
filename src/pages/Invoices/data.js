@@ -46,7 +46,7 @@ const data = [
     date: "Due 12 Nov 2021",
     customer: "Anita Wainwright",
     totalAmount: 3102.04,
-    status: "draft",
+    status: "Draft",
   },
 ];
 

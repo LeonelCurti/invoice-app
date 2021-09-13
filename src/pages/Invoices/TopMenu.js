@@ -12,7 +12,7 @@ import { useTheme, makeStyles } from "@material-ui/core/styles";
 import Add from "@material-ui/icons/Add";
 
 const useStyles = makeStyles((theme) => ({
-  root: { },
+  root: {},
   formControl: {
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Test() {
+export default function TopMenu() {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
@@ -60,7 +60,13 @@ export default function Test() {
           </Select>
         </FormControl>
         <Box ml={2}>
-          <Button variant="contained" color="primary" startIcon={<Add />}>
+          <Button
+            variant="contained"
+            style={{ textTransform: "none", borderRadius:'20px' }}
+            color="primary"
+            disableElevation
+            startIcon={<Add />}
+          >
             {matches ? "New Invoice" : "New"}
           </Button>
         </Box>
