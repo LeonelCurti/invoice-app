@@ -105,15 +105,17 @@ const useStyles = makeStyles((theme) => ({
   },
   paid: {
     color: theme.palette.success.main,
-    borderColor: theme.palette.success.main,
+    backgroundColor: "rgba(56, 142, 60, 0.2)",
+    borderStyle: "none",
   },
   draft: {
-    // color: theme.palette.success.main,
-    // borderColor: theme.palette.success.main,
+    backgroundColor: "rgba(213, 213, 213, 0.1)",
+    borderStyle: "none",
   },
   pending: {
     color: theme.palette.warning.main,
-    borderColor: theme.palette.warning.main,
+    backgroundColor: "rgba(245, 124, 0, 0.2)",
+    borderStyle: "none",
   },
 }));
 
@@ -150,18 +152,11 @@ export default function InvoiceCard(props) {
               <Typography variant="body2">{customer}</Typography>
             </Grid>
             <Grid item xs={6} sm className={classes.item4}>
-              <Typography variant="h6">${totalAmount}</Typography>
+              <Typography variant="h6">£{totalAmount}</Typography>
             </Grid>
             <Grid item xs={6} sm className={classes.item5}>
               <Box display="flex" justifyContent="center" alignItems="center">
                 <Chip
-                  color="success"
-                  // icon={
-                  //   <Brightness1Icon
-                  //     fontSize="small"
-                  //     className={classes[status]}
-                  //   />
-                  // }
                   label={upperCaseFirstLetter(status)}
                   variant="outlined"
                   className={clsx(classes.chip, classes[status])}
