@@ -1,12 +1,12 @@
-import { createTheme, responsiveFontSizes } from "@material-ui/core";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 
 const theme = createTheme({
   palette: {
     primary: { main: "#725EF2" },
     secondary: { main: "#e64a19" },
     error: { main: "#FF1654" },
-    // background: { default: "#f5f7fb" },
-    type: "dark",
+    backgroundInvoicePage: { main: "#151826" },
+    mode: "dark",
   },
   typography: {
     useNextVariants: true,

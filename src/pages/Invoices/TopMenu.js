@@ -7,29 +7,23 @@ import {
   useMediaQuery,
   Box,
   FormControl,
-} from "@material-ui/core";
-import { useTheme, makeStyles } from "@material-ui/core/styles";
-import Add from "@material-ui/icons/Add";
-
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  formControl: {
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-    },
-    minWidth: 80,
-  },
-}));
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import Add from "@mui/icons-material/Add";
 
 export default function TopMenu() {
-  const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const [filter, setFilter] = React.useState("");
 
   const handleChange = (event) => {
+    console.log(event.target.value);
     setFilter(event.target.value);
   };
+  // const handleClose = (event) => {
+  //   console.log(event.target.value);
+  //   // setFilter(event.target.value);
+  // };
 
   return (
     <Box display="flex" alignItems="center">
@@ -40,12 +34,29 @@ export default function TopMenu() {
         </Typography>
       </Box>
       <Box display="flex" alignItems="center">
-        <FormControl className={classes.formControl}>
+        <FormControl
+          variant="standard"
+          sx={{
+            marginLeft: {
+              sm: 1,
+            },
+            minWidth: 80,
+          }}
+        >
           <Select
             value={filter}
             labelId="simple-select-label"
             displayEmpty
             id="simple-select"
+            sx={{
+              textAlign: "right",
+              "& .MuiSelect-icon": {
+                color: "primary.main",
+              },
+              "& .MuiSelect-select:focus": {
+                backgroundColor: "backgroundInvoicePage.main",
+              },
+            }}
             disableUnderline
             onChange={handleChange}
             inputProps={{ "aria-label": "Without label" }}
@@ -62,7 +73,16 @@ export default function TopMenu() {
         <Box ml={2}>
           <Button
             variant="contained"
-            style={{ textTransform: "none", borderRadius:'20px' }}
+            sx={{ 
+              textTransform: "none",
+              borderRadius: "20px",
+              fontSize:{xs:16,sm:15},
+              '& .MuiSvgIcon-root':{
+                backgroundColor:'white',
+                borderRadius:'10px',
+                color:'primary.main'
+              } 
+            }}
             color="primary"
             disableElevation
             startIcon={<Add />}

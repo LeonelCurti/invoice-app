@@ -1,37 +1,18 @@
-import React, { useState } from "react";
-// import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/styles";
-import { useMediaQuery } from "@material-ui/core";
+import React from "react";
 import Sidebar from "./Sidebar";
 import TopBar from "./TopBar";
+import Box from "@mui/material/Box";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    // height: "100%",
-    // paddingTop: 56,
-    // [theme.breakpoints.up("sm")]: {
-    //   paddingTop: 64,
-    // },
-  },
-  content: {
-    // height: "100%",
-  },
-}));
+const drawerWidth = 65;
 
 const Layout = (props) => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"), {
-    defaultMatches: true,
-  });
   return (
-    <div className={classes.root}>
+    <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}>
       <TopBar />
-
-      <Sidebar />
-      <main className={classes.content}>{props.children}</main>
-    </div>
+      <Sidebar drawerWidth={drawerWidth} />
+      <Box sx={{ flexGrow: 1 }}>{props.children}</Box>
+    </Box>
   );
 };
 
-export default Layout
+export default Layout;
