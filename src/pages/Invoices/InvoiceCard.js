@@ -1,17 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   Typography,
   Box,
   Grid,
   Card,
   CardActionArea,
-  Chip,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { upperCaseFirstLetter } from "../../utils";
+import { ChipStyle } from "../../components/ChipStyle";
 
-const CardActionAreaStyle = styled(CardActionArea)(({ theme }) => ({
-  backgroundColor: "#232740",
+const CardActionAreaStyle = styled(CardActionArea)(({ theme }) => ({ 
+  backgroundColor: theme.palette.background.paper,
   minHeight: theme.spacing(8),
   padding: theme.spacing(1),
   [theme.breakpoints.down("sm")]: {
@@ -20,9 +22,10 @@ const CardActionAreaStyle = styled(CardActionArea)(({ theme }) => ({
     paddingLeft: theme.spacing(5),
     paddingRight: theme.spacing(5),
   },
-  "& :hover": {
-    backgroundColor: theme.palette.backgroundInvoicePage.dark,
-  },
+  // "&.MuiButtonBase-root:hover": {
+  //   backgroundColor: theme.palette.backgroundInvoicePage.light,
+  // },
+
 }));
 
 const CardStyle = styled(Card)(({ theme }) => ({
@@ -31,46 +34,26 @@ const CardStyle = styled(Card)(({ theme }) => ({
     textAlign: "center",
   },
   transition: "0.7s",
+  "& .MuiChip-root": {
+    cursor: "pointer",
+  },
+
   // "& :hover": {
   //   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)",
   // },
 }));
 
-const ChipStyle = styled(Chip)(({ theme }) => ({
-  minWidth: theme.spacing(13),
-  borderRadius: "5px",
-  fontSize: "1rem",
-  [theme.breakpoints.down("xs")]: {
-    minWidth: theme.spacing(15),
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-  },
-  "&.paid": {
-    color: theme.palette.success.main,
-    backgroundColor: "rgba(56, 142, 60, 0.2)",
-    borderStyle: "none",
-  },
-  "&.draft": {
-    backgroundColor: "rgba(213, 213, 213, 0.1)",
-    borderStyle: "none",
-  },
-  "&.pending": {
-    color: theme.palette.warning.main,
-    backgroundColor: "rgba(245, 124, 0, 0.2)",
-    borderStyle: "none",
-  },
-}));
-
 export default function InvoiceCard(props) {
   const { id, date, customer, totalAmount, status } = props.invoice;
-  const upperCaseFirstLetter = (str) =>
-    str.charAt(0).toUpperCase() + str.slice(1);
+  let history = useHistory();
+
+  const handleViewInvoice = () => {
+    history.push(`/invoice/${id}`);
+  };
 
   return (
     <CardStyle>
-      <CardActionAreaStyle>
+      <CardActionAreaStyle onClick={handleViewInvoice}>
         <Grid
           container
           direction="row"
@@ -160,6 +143,6 @@ export default function InvoiceCard(props) {
           </Grid>
         </Grid>
       </CardActionAreaStyle>
-    </CardStyle>    
+    </CardStyle>
   );
 }

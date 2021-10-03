@@ -11,14 +11,12 @@ const SideBar = ({ drawerWidth }) => {
       sx={{
         display: { xs: "none", md: "block" },
         width: drawerWidth,
-        flexShrink: 0,
-        backgroundColor: "backgroundInvoicePage.main",
+        flexShrink: 0,     
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
           borderTopRightRadius: "15px",
-          borderBottomRightRadius: "15px",
-          backgroundColor: "#232740",
+          borderBottomRightRadius: "15px",   
           borderStyle: "none",
         },
       }}

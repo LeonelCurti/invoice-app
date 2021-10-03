@@ -6,7 +6,7 @@ import InvoiceCard from "./InvoiceCard";
 import Layout from "../../components/Layout";
 
 
-export default function Test() {
+export default function Invoices() {
 
   return (
     <Layout>

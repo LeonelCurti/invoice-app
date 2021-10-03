@@ -9,12 +9,9 @@ const TopBar = () => {
       sx={{
         flexGrow: 1,
         display: { xs: "block", md: "none" },
-        "& .MuiPaper-root": {
-          backgroundColor: "#232740",
-        },
       }}
     >
-      <AppBar position="static" sx={{ backgroundImage: "none" }}>
+      <AppBar position="static">
         <Box
           sx={{
             display: "flex",
