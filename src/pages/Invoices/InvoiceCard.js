@@ -1,18 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {
-  Typography,
-  Box,
-  Grid,
-  Card,
-  CardActionArea,
-} from "@mui/material";
+import { Typography, Box, Grid, Card, CardActionArea } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { upperCaseFirstLetter } from "../../utils";
 import { ChipStyle } from "../../components/ChipStyle";
-
-const CardActionAreaStyle = styled(CardActionArea)(({ theme }) => ({ 
+import clsx from "clsx";
+const CardActionAreaStyle = styled(CardActionArea)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   minHeight: theme.spacing(8),
   padding: theme.spacing(1),
@@ -25,7 +19,6 @@ const CardActionAreaStyle = styled(CardActionArea)(({ theme }) => ({
   // "&.MuiButtonBase-root:hover": {
   //   backgroundColor: theme.palette.backgroundInvoicePage.light,
   // },
-
 }));
 
 const CardStyle = styled(Card)(({ theme }) => ({
@@ -44,7 +37,7 @@ const CardStyle = styled(Card)(({ theme }) => ({
 }));
 
 export default function InvoiceCard(props) {
-  const { id, date, customer, totalAmount, status } = props.invoice;
+  const { id, date, client, totalAmount, status } = props.invoice;
   let history = useHistory();
 
   const handleViewInvoice = () => {
@@ -90,7 +83,7 @@ export default function InvoiceCard(props) {
             }}
           >
             <Typography sx={{ paddingLeft: { sm: 2, md: 3 } }} variant="body2">
-              {customer}
+              {client.name}
             </Typography>
           </Grid>
           <Grid
@@ -130,6 +123,7 @@ export default function InvoiceCard(props) {
                 label={upperCaseFirstLetter(status)}
                 variant="outlined"
                 className={status}
+                avatar={<span className={clsx("dot", status)}></span>}
               />
 
               <KeyboardArrowRightIcon

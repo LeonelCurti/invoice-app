@@ -1,40 +1,22 @@
 import React from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Layout from "../../components/Layout";
-import { Container, Box, Typography, IconButton, Button } from "@mui/material";
+import { Container } from "@mui/material";
+import NavBack from "./NavBack";
 import ActionsMenu from "./ActionsMenu";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-const Invoice = () => {
-  let history = useHistory();
+import InvoiceDetail from "./InvoiceDetail";
+import demoData from "../Invoices/data";
 
-  const handleViewInvoices = () => {
-    history.push("/invoices");
-  };
+const Invoice = () => {
   const { invoiceId } = useParams();
+  const invoiceFound = demoData.find((invoice) => invoice.id === invoiceId);
+
   return (
     <Layout>
       <Container maxWidth="md">
-        <Box
-          sx={{
-            backgroundColor: "backgroundInvoicePage.main",
-            height: "100%",
-            paddingTop: "1em",
-            paddingBottom: "1em",
-          }}
-        >
-          <Box sx={{ display: "flex", alignItems: "center", paddingBottom:1}}>
-            <Button              
-              variant="text"
-              color="inherit"
-              onClick={handleViewInvoices}
-              startIcon={<KeyboardArrowLeftIcon />}
-              sx={{textTransform:'none'}}
-            >
-              Go back
-            </Button>
-          </Box>
-          <ActionsMenu />
-        </Box>
+        <NavBack />
+        <ActionsMenu invoiceStatus={invoiceFound.status} />
+        <InvoiceDetail invoice={invoiceFound} />
       </Container>
     </Layout>
   );

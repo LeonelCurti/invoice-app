@@ -3,6 +3,8 @@ import { Box, Card, Button, Typography } from "@mui/material";
 import { upperCaseFirstLetter } from "../../utils";
 import { styled } from "@mui/material/styles";
 import { ChipStyle } from "../../components/ChipStyle";
+import clsx from "clsx";
+
 const ButtonStyle = styled(Button)(() => ({
   textTransform: "none",
   borderRadius: "20px",
@@ -14,11 +16,11 @@ const ButtonStyle = styled(Button)(() => ({
   },
 }));
 
-const ActionsMenu = () => {
+const ActionsMenu = ({ invoiceStatus }) => {
   return (
     <Card
       sx={{
-        display: {xs:'block', sm:'flex'},
+        display: { xs: "block", sm: "flex" },
         borderRadius: "10px",
         justifyContent: "space-between",
         alignItems: "center",
@@ -28,7 +30,7 @@ const ActionsMenu = () => {
     >
       <Box
         sx={{
-          display:'flex',       
+          display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
@@ -42,9 +44,10 @@ const ActionsMenu = () => {
           Status
         </Typography>
         <ChipStyle
-          label={upperCaseFirstLetter("Pending")}
+          label={upperCaseFirstLetter(invoiceStatus)}
           variant="outlined"
-          className={"pending"}
+          className={invoiceStatus}
+          avatar={<span className={clsx("dot", invoiceStatus)}></span>}
         />
       </Box>
       <Box

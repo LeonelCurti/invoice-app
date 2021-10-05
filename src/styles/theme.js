@@ -5,6 +5,7 @@ const theme = createTheme({
     primary: { main: "#725EF2" },
     // secondary: { main: "#e64a19" },
     error: { main: "#dc3545" },
+    invoiceTableBg: { main: "#2a2f4e" },
     mode: "dark",
     background: {
       default: "#151826",
@@ -38,8 +39,8 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage:'none'
-        },        
+          backgroundImage: "none",
+        },
       },
     },
   },
