@@ -5,10 +5,13 @@ import Divider from "@mui/material/Divider";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import IconButton from "@mui/material/IconButton";
-const SideBar = ({ drawerWidth }) => {
+
+const drawerWidth = 64;
+
+const SideBar = () => {
   return (
     <Drawer
-      sx={{
+      sx={{       
         display: { xs: "none", md: "block" },
         width: drawerWidth,
         flexShrink: 0,     

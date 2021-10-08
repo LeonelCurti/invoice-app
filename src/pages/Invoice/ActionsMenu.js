@@ -16,7 +16,7 @@ const ButtonStyle = styled(Button)(() => ({
   },
 }));
 
-const ActionsMenu = ({ invoiceStatus }) => {
+const ActionsMenu = ({ invoiceStatus, onEditInvoice }) => {
   return (
     <Card
       sx={{
@@ -60,6 +60,7 @@ const ActionsMenu = ({ invoiceStatus }) => {
       >
         <ButtonStyle
           variant="contained"
+          onClick={onEditInvoice}
           disableElevation
           sx={{
             backgroundColor: "rgba(213, 213, 213, 0.2)",
