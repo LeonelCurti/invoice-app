@@ -19,7 +19,7 @@ const calculateOrderTotal = (itemList) => {
     .toFixed(2);
 };
 
-const InvoiceCartTable = ({invoiceItems}) => {
+const InvoiceItemsTable = ({ invoiceItems }) => {
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.up("sm"));
   return (
@@ -104,4 +104,4 @@ const InvoiceCartTable = ({invoiceItems}) => {
   );
 };
 
-export default InvoiceCartTable;
+export default InvoiceItemsTable;

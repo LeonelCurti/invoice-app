@@ -6,6 +6,7 @@ const SideDrawer = ({ open, onClose, children }) => {
   return (
     <Drawer
       anchor="left"
+      transitionDuration={{ enter: 600, exit: 500 }}
       open={open}
       onClose={onClose}
       sx={{
@@ -21,9 +22,7 @@ const SideDrawer = ({ open, onClose, children }) => {
       }}
     >
       <Box
-        sx={{ width: { xs: "100vw", sm: "70vw", md: "60vw" } }}
-        // onClick={toggleDrawer(anchor, false)}
-        // onKeyDown={toggleDrawer(anchor, false)}
+        sx={{ height: "100%", width: { xs: "90vw", sm: "70vw", md: "50vw" } }}
       >
         {children}
       </Box>

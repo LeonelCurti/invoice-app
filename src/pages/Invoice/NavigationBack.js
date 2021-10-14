@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Box, Button } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
-const NavBack = () => {
+const NavigationBack = () => {
   let history = useHistory();
   const handleViewInvoices = () => {
     history.push("/invoices");
@@ -33,4 +33,4 @@ const NavBack = () => {
   );
 };
 
-export default NavBack;
+export default NavigationBack;

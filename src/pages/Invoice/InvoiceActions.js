@@ -16,7 +16,7 @@ const ButtonStyle = styled(Button)(() => ({
   },
 }));
 
-const ActionsMenu = ({ invoiceStatus, onEditInvoice }) => {
+const invoiceActions = ({ invoiceStatus, onEditInvoice }) => {
   return (
     <Card
       sx={{
@@ -58,28 +58,37 @@ const ActionsMenu = ({ invoiceStatus, onEditInvoice }) => {
           },
         }}
       >
-        <ButtonStyle
-          variant="contained"
-          onClick={onEditInvoice}
-          disableElevation
-          sx={{
-            backgroundColor: "rgba(213, 213, 213, 0.2)",
-            "&:hover": {
-              backgroundColor: "rgba(213, 213, 213, 0.1)",
-            },
-          }}
-        >
-          Edit
-        </ButtonStyle>
+        {(invoiceStatus === "draft" || invoiceStatus === "pending") && (
+          <ButtonStyle
+            variant="contained"
+            onClick={onEditInvoice}
+            disableElevation
+            sx={{
+              backgroundColor: "invoiceTableBg.main",
+              // "&:hover": {
+              //   backgroundColor: "invoiceTableBg.dark",
+              // },
+            }}
+          >
+            Edit
+          </ButtonStyle>
+        )}
         <ButtonStyle variant="contained" color="error" disableElevation>
           Delete
         </ButtonStyle>
-        <ButtonStyle variant="contained" color="primary" disableElevation>
-          Mark as Paid
-        </ButtonStyle>
+        {invoiceStatus === "draft" && (
+          <ButtonStyle variant="contained" color="primary" disableElevation>
+            Mark as Pending
+          </ButtonStyle>
+        )}
+        {invoiceStatus === "pending" && (
+          <ButtonStyle variant="contained" color="primary" disableElevation>
+            Mark as Paid
+          </ButtonStyle>
+        )}
       </Box>
     </Card>
   );
 };
 
-export default ActionsMenu;
+export default invoiceActions;

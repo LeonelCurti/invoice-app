@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { Container } from "@mui/material";
 import SideDrawer from "../../components/SideDrawer";
-import NavBack from "./NavBack";
-import ActionsMenu from "./ActionsMenu";
+import NavigationBack from "./NavigationBack";
+import ActionsMenu from "./InvoiceActions";
 import InvoiceDetail from "./InvoiceDetail";
+import BillingInvoiceForm from "../../components/BillingInvoiceForm";
 import demoData from "../Invoices/data";
 
 const Invoice = () => {
@@ -16,15 +17,21 @@ const Invoice = () => {
   return (
     <Layout>
       <Container maxWidth="md">
-        <NavBack />
+        <NavigationBack />
         <ActionsMenu
           invoiceStatus={invoiceFound.status}
           onEditInvoice={() => setOpen(true)}
+          // onDeleteInvoice
+          // onMarkAsPaidInvoice
         />
         <InvoiceDetail invoice={invoiceFound} />
       </Container>
       <SideDrawer open={open} onClose={() => setOpen(false)}>
-        test
+        <BillingInvoiceForm
+          title="Edit"
+          invoice={invoiceFound}
+          onClose={() => setOpen(false)}
+        />
       </SideDrawer>
     </Layout>
   );

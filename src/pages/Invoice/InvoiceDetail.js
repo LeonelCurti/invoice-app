@@ -1,14 +1,13 @@
 import React from "react";
 import { Box, Card, Typography } from "@mui/material";
-import InvoiceCartTable from "./InvoiceCartTable";
+import InvoiceCartTable from "./InvoiceItemsTable";
 
 const InvoiceDetail = ({ invoice }) => {
   return (
     <Card
       sx={{
-        // display: { xs: "block", sm: "flex" },
+        height: "80%",
         borderRadius: "10px",
-        // alignItems: "center",
         marginY: 2,
         paddingY: 2,
         paddingX: { xs: 3, sm: 6 },
@@ -98,7 +97,7 @@ const InvoiceDetail = ({ invoice }) => {
         </Box>
       </Box>
 
-      <InvoiceCartTable invoiceItems={invoice.items} />      
+      <InvoiceCartTable invoiceItems={invoice.items} />
     </Card>
   );
 };

@@ -9,7 +9,7 @@ const theme = createTheme({
     mode: "dark",
     background: {
       default: "#151826",
-      paper: "#232740",
+      paper: "#232740",      
     },
   },
   typography: {
@@ -39,7 +39,7 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: "none",
+          backgroundImage: "none",       
         },
       },
     },
