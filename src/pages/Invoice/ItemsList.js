@@ -19,7 +19,7 @@ const calculateOrderTotal = (itemList) => {
     .toFixed(2);
 };
 
-const InvoiceItemsTable = ({ invoiceItems }) => {
+const ItemsList = ({ invoiceItems }) => {
   const theme = useTheme();
   const matchesSm = useMediaQuery(theme.breakpoints.up("sm"));
   return (
@@ -27,7 +27,7 @@ const InvoiceItemsTable = ({ invoiceItems }) => {
       sx={{
         // paddingX: 3,
         marginY: 3,
-        backgroundColor: "invoiceTableBg.main",
+        backgroundColor: "background.light",
       }}
     >
       {matchesSm ? (
@@ -104,4 +104,4 @@ const InvoiceItemsTable = ({ invoiceItems }) => {
   );
 };
 
-export default InvoiceItemsTable;
+export default ItemsList;

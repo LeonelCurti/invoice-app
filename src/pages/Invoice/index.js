@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Layout from "../../components/Layout";
+import Layout from "../../components/layout/Layout";
 import { Container } from "@mui/material";
-import SideDrawer from "../../components/SideDrawer";
+
 import NavigationBack from "./NavigationBack";
-import ActionsMenu from "./InvoiceActions";
+import Header from "./Header";
 import InvoiceDetail from "./InvoiceDetail";
-import BillingInvoiceForm from "../../components/BillingInvoiceForm";
+import EditInvoiceForm from "./EditInvoiceForm";
 import demoData from "../Invoices/data";
 
 const Invoice = () => {
@@ -18,21 +18,20 @@ const Invoice = () => {
     <Layout>
       <Container maxWidth="md">
         <NavigationBack />
-        <ActionsMenu
-          invoiceStatus={invoiceFound.status}
-          onEditInvoice={() => setOpen(true)}
-          // onDeleteInvoice
-          // onMarkAsPaidInvoice
+        <Header
+          status={invoiceFound.status}
+          onEdit={() => setOpen(true)}
+          onDelete={() => {}}
+          onMarkAsPaid={() => {}}
+          onMarkAsPending={() => {}}
         />
         <InvoiceDetail invoice={invoiceFound} />
       </Container>
-      <SideDrawer open={open} onClose={() => setOpen(false)}>
-        <BillingInvoiceForm
-          title="Edit"
-          invoice={invoiceFound}
-          onClose={() => setOpen(false)}
-        />
-      </SideDrawer>
+      <EditInvoiceForm
+        open={open}
+        invoice={invoiceFound}
+        onCancel={() => setOpen(false)}
+      />
     </Layout>
   );
 };

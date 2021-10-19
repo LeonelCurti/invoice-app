@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Card, Typography } from "@mui/material";
-import InvoiceCartTable from "./InvoiceItemsTable";
+import ItemsList from "./ItemsList";
 
 const InvoiceDetail = ({ invoice }) => {
   return (
@@ -97,7 +97,7 @@ const InvoiceDetail = ({ invoice }) => {
         </Box>
       </Box>
 
-      <InvoiceCartTable invoiceItems={invoice.items} />
+      <ItemsList invoiceItems={invoice.items} />
     </Card>
   );
 };

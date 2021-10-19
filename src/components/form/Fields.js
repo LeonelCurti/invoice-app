@@ -1,39 +1,6 @@
 import React from "react";
-import { TextField, Grid, Typography, styled } from "@mui/material";
-
-const TextFieldStyle = styled((props) => (
-  <TextField InputProps={{ disableUnderline: true }} {...props} />
-))(({ theme }) => ({
-  "& label": {
-    color: "rgba(255, 255, 255, 0.9)",
-    fontSize: "1.1rem",
-  },
-  "& label.Mui-focused": {
-    color: theme.palette.primary.main,
-  },
-  "& .MuiInputBase-input": {
-    marginTop: "5px",
-    overflow: "hidden",
-    borderRadius: "5px",
-    padding: "10px 12px",
-    backgroundColor:
-      theme.palette.mode === "light"
-        ? "#fcfcfb"
-        : theme.palette.background.paper,
-    "&:hover": {
-      backgroundColor:
-        theme.palette.mode === "light"
-          ? "#fcfcfb"
-          : theme.palette.background.paper,
-    },
-    "& .Mui-focused": {
-      backgroundColor:
-        theme.palette.mode === "light"
-          ? "#fcfcfb"
-          : theme.palette.background.paper,
-    },
-  },
-}));
+import { Grid, Typography } from "@mui/material";
+import { TextFieldStyle } from "./TextFieldStyle";
 
 const Subtitle = (props) => (
   <Typography color="primary" variant="subtitle2" gutterBottom mt={3} mb={2}>
@@ -48,41 +15,29 @@ const BillingInfoForm = () => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextFieldStyle
-            id="standard-helperText"
-            label="Street Address"
-            defaultValue="test"
+            label="Street Address"           
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={4}>
           <TextFieldStyle
-            id="standard-helperText"
-            label="City"
-            defaultValue=" "
+            label="City"           
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={4}>
           <TextFieldStyle
-            id="standard-helperText"
-            label="Post Code"
-            defaultValue=" "
+            label="Post Code"           
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={4}>
           <TextFieldStyle
-            id="standard-helperText"
-            label="Country"
-            defaultValue=" "
+            label="Country"           
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
@@ -92,91 +47,65 @@ const BillingInfoForm = () => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextFieldStyle
-            id="standard-helperText"
-            label="Client's Name"
-            defaultValue=" "
+            label="Client's Name"           
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
-            id="standard-helperText"
             label="Client's Email"
-            defaultValue=" "
+            // defaultValue=" "
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
-            id="standard-helperText"
-            label="Street Address"
-            defaultValue=" "
+            label="Street Address"   
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={4}>
           <TextFieldStyle
-            id="standard-helperText"
             label="City"
-            defaultValue=" "
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={4}>
           <TextFieldStyle
-            id="standard-helperText"
             label="Post Code"
-            defaultValue=" "
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={4}>
           <TextFieldStyle
-            id="standard-helperText"
             label="Country"
-            defaultValue=" "
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={6}>
           <TextFieldStyle
-            id="standard-helperText"
             label="Invoice Date"
-            defaultValue=" "
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={6}>
           <TextFieldStyle
-            id="standard-helperText"
             label="Payment Terms"
-            defaultValue=" "
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
-            id="standard-helperText"
             label="Project Description"
-            defaultValue=" "
             // helperText="Some important text"
-            variant="standard"
             fullWidth
           />
         </Grid>

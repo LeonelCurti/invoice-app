@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "./SideBar";
-import TopBar from "./TopBar";
+import Sidebar from "./Sidebar";
+import Topbar from "./Topbar";
 import Box from "@mui/material/Box";
 
 const Layout = (props) => {
@@ -12,7 +12,7 @@ const Layout = (props) => {
         flexDirection: { xs: "column", md: "row" },
       }}
     >
-      <TopBar />
+      <Topbar />
       <Sidebar />
       <Box sx={{ height: "100%", flexGrow: 1 }}>{props.children}</Box>
     </Box>

@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 
 const drawerWidth = 64;
 
-const SideBar = () => {
+const Sidebar = () => {
   return (
     <Drawer
       sx={{       
@@ -87,4 +87,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default Sidebar;

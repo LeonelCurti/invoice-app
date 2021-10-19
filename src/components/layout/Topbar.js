@@ -3,7 +3,7 @@ import { AppBar, IconButton, Box } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import Divider from "@mui/material/Divider";
-const TopBar = () => {
+const Topbar = () => {
   return (
     <Box
       sx={{
@@ -72,4 +72,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar;
+export default Topbar;

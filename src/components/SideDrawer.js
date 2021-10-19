@@ -16,7 +16,7 @@ const SideDrawer = ({ open, onClose, children }) => {
           marginLeft: { xs: 0, md: 8 },
         },
         "& .MuiPaper-root": {
-          backgroundColor: "#151826",
+          backgroundColor: "background.default",
           marginLeft: { xs: 0, md: 8 },
         },
       }}

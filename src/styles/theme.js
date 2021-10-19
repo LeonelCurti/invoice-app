@@ -1,16 +1,23 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
+const PRIMARY = {
+  // light: "#a98cff",
+  main: "#725EF2",
+  // dark: "#5D4DC4",
+  // contrastText: "#fff",
+};
+
+const BACKGROUND = {
+  default: "#151826",
+  paper: "#232740",
+  light:"#2a2f4e",
+};
 
 const theme = createTheme({
   palette: {
-    primary: { main: "#725EF2" },
-    // secondary: { main: "#e64a19" },
+    primary: { ...PRIMARY },
     error: { main: "#dc3545" },
-    invoiceTableBg: { main: "#2a2f4e" },
     mode: "dark",
-    background: {
-      default: "#151826",
-      paper: "#232740",      
-    },
+    background: { ...BACKGROUND },
   },
   typography: {
     useNextVariants: true,
@@ -39,7 +46,7 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: "none",       
+          backgroundImage: "none",
         },
       },
     },
