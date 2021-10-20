@@ -20,21 +20,21 @@ const BillingInfoForm = () => {
             fullWidth
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="City"           
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Post Code"           
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Country"           
             // helperText="Some important text"
@@ -67,35 +67,35 @@ const BillingInfoForm = () => {
             fullWidth
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="City"
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Post Code"
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Country"
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Invoice Date"
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Payment Terms"
             // helperText="Some important text"

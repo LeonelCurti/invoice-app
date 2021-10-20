@@ -2,7 +2,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material";
 const PRIMARY = {
   // light: "#a98cff",
   main: "#725EF2",
-  // dark: "#5D4DC4",
+  dark: "#5D4DC4",
   // contrastText: "#fff",
 };
 

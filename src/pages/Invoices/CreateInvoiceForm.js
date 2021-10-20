@@ -17,7 +17,13 @@ const CreateInvoiceForm = ({
   const [items, setItems] = React.useState([]);
   return (
     <SideDrawer open={open} onClose={onDiscard}>
-      <Box display="flex" flexDirection="column" px={4} pt={3} pb={1}>
+      <Box sx={{
+          display: "flex",
+          flexDirection: "column",
+          px: { xs: 3, sm: 4 },
+          pt: 3,
+          pb: 1,
+        }}>
         <Typography variant="h6" gutterBottom>
           New Invoice
         </Typography>
@@ -41,13 +47,33 @@ const CreateInvoiceForm = ({
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
             paddingY: 1,
           }}
         >
-          <Box flexGrow={1}>
-            <CancelButtonStyle onClick={onDiscard}>Discard</CancelButtonStyle>
+          <Box
+            sx={{
+              order: { xs: 2, sm: 1 },
+              flexGrow: { xs: 0, sm: 1 },
+              marginTop: { xs: 2, sm: 0 },
+              marginBottom: { xs: 2, sm: 0 },
+            }}
+          >
+            <CancelButtonStyle
+              sx={{ width: { xs: "100%", sm: "auto" } }}
+              onClick={onDiscard}
+            >
+              Discard
+            </CancelButtonStyle>
           </Box>
-          <Box display="flex" gap={2}>
+          <Box
+            sx={{
+              display: "flex",
+              order: { xs: 1, sm: 2 },
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 2,
+            }}
+          >
             <ButtonStyle onClick={onSaveAsDraft}>Save As Draft</ButtonStyle>
             <ButtonStyle onClick={onSaveAsPending}>Save {"&"} Send</ButtonStyle>
           </Box>

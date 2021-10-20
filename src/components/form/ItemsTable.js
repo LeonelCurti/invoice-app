@@ -27,6 +27,7 @@ const BillingItemsTable = ({ items }) => {
         <Table
           sx={{
             minWidth: 400,
+            minHeight: 82,
             "& .MuiTableCell-root": {
               // padding: 1,
               borderBottom: "none",
