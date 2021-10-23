@@ -1,7 +1,8 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { TextFieldStyle } from "./TextFieldStyle";
-import DatePicker from './DatePicker'
+import DatePicker from "./DatePicker";
+import Dropdown from "./Dropdown";
 
 const Subtitle = (props) => (
   <Typography color="primary" variant="subtitle2" gutterBottom mt={3} mb={2}>
@@ -16,28 +17,28 @@ const BillingInfoForm = () => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextFieldStyle
-            label="Street Address"           
+            label="Street Address"
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
-            label="City"           
+            label="City"
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
-            label="Post Code"           
+            label="Post Code"
             // helperText="Some important text"
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
-            label="Country"           
+            label="Country"
             // helperText="Some important text"
             fullWidth
           />
@@ -48,7 +49,7 @@ const BillingInfoForm = () => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextFieldStyle
-            label="Client's Name"           
+            label="Client's Name"
             // helperText="Some important text"
             fullWidth
           />
@@ -63,7 +64,7 @@ const BillingInfoForm = () => {
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
-            label="Street Address"   
+            label="Street Address"
             // helperText="Some important text"
             fullWidth
           />
@@ -91,22 +92,15 @@ const BillingInfoForm = () => {
         </Grid>
         <Grid item xs={12} sm={4}>
           <DatePicker
-            label="Invoice Date"  
-            // helperText="Some important text"
-            fullWidth
-          />
-          {/* <TextFieldStyle
             label="Invoice Date"
             // helperText="Some important text"
-            fullWidth
-          /> */}
+          />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextFieldStyle
+          <Dropdown
             label="Payment Terms"
             // helperText="Some important text"
-            fullWidth
-          />
+          />     
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
