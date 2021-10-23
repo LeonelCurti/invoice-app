@@ -22,15 +22,8 @@ export const TextFieldStyle = styled((props) => (
     padding: "10px 12px",
     border: "1px solid transparent",
     backgroundColor: theme.palette.background.paper,
-    "&:hover": {
-      // backgroundColor: theme.palette.background.paper,
-    },
     "&:focus": {
       border: `1px solid ${theme.palette.primary.main}`,
-      // backgroundColor: theme.palette.background.paper,
     },
-    // "& .Mui-focused": {
-    //   backgroundColor: theme.palette.background.paper,
-    // },
   },
 }));

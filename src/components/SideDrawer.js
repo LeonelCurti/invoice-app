@@ -22,7 +22,7 @@ const SideDrawer = ({ open, onClose, children }) => {
       }}
     >
       <Box
-        sx={{ height: "100%", width: { xs: "90vw", sm: "70vw", md: "50vw" } }}
+        sx={{ height: "100%", width: { xs: "100vw", sm: "80vw", md: "70vw" } }}
       >
         {children}
       </Box>

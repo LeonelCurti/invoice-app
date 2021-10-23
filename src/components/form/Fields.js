@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { TextFieldStyle } from "./TextFieldStyle";
+import DatePicker from './DatePicker'
 
 const Subtitle = (props) => (
   <Typography color="primary" variant="subtitle2" gutterBottom mt={3} mb={2}>
@@ -89,11 +90,16 @@ const BillingInfoForm = () => {
           />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextFieldStyle
-            label="Invoice Date"
+          <DatePicker
+            label="Invoice Date"  
             // helperText="Some important text"
             fullWidth
           />
+          {/* <TextFieldStyle
+            label="Invoice Date"
+            // helperText="Some important text"
+            fullWidth
+          /> */}
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
