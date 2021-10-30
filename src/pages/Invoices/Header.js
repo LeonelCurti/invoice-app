@@ -22,7 +22,7 @@ const Header = ({ onOpenForm }) => {
   return (
     <Box display="flex" alignItems="center">
       <Box flexGrow={1}>
-        <Typography variant="h4">Invoices</Typography>
+        <Typography variant="h4" fontWeight={500}>Invoices</Typography>
         <Typography color="textSecondary">
           {matches ? "There are 7 total invoices" : "7 invoices"}
         </Typography>

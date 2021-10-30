@@ -27,7 +27,7 @@ const ItemsList = ({ invoiceItems }) => {
       sx={{
         // paddingX: 3,
         marginY: 3,
-        backgroundColor: "background.light",
+        backgroundColor: "background.light",        
       }}
     >
       {matchesSm ? (
@@ -91,6 +91,7 @@ const ItemsList = ({ invoiceItems }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          color:'common.white',
           padding: 3,
         }}
       >

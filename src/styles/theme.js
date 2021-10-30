@@ -1,23 +1,39 @@
-import { createTheme, responsiveFontSizes } from "@mui/material";
-const PRIMARY = {
-  // light: "#a98cff",
-  main: "#725EF2",
-  dark: "#5D4DC4",
-  // contrastText: "#fff",
-};
-
-const BACKGROUND = {
-  default: "#151826",
-  paper: "#232740",
-  light:"#2a2f4e",
-};
-
-const theme = createTheme({
+const getThemeTokens = (mode) => ({
   palette: {
-    primary: { ...PRIMARY },
-    error: { main: "#dc3545" },
-    mode: "dark",
-    background: { ...BACKGROUND },
+    mode,
+    ...(mode === "light"
+      ? {
+          // palette values for light mode
+          primary: {
+            main: "#725EF2",
+            dark: "#5D4DC4",
+          },
+          error: { main: "#dc3545" },
+          background: {
+            default: "#f7f7f7",
+            // paper: "#232740",
+            dark: "#5e5e5e",
+            darker: "#4a4a4a",
+            light: "#f9f9f9",
+            topMenu: "#232740",
+            sideMenu: "#232740",
+          },
+        }
+      : {
+          // palette values for dark mode
+          primary: {
+            main: "#725EF2",
+            dark: "#5D4DC4",
+          },
+          error: { main: "#dc3545" },
+          background: {
+            default: "#151826",
+            paper: "#232740",
+            light: "#2a2f4e",
+            topMenu: "#232740",
+            sideMenu: "#232740",
+          },
+        }),
   },
   typography: {
     useNextVariants: true,
@@ -27,30 +43,24 @@ const theme = createTheme({
     drawer: 1100,
   },
   components: {
-    // MuiCardActionArea: {
-    //   styleOverrides: {
-    //     root: {
-    //       "&:hover $focusHighlight": {
-    //         opacity: 0.04,
-    //       },
-    //       "&$focusVisible $focusHighlight": {
-    //         opacity: 0.2,
-    //       },
-    //     },
-    //     focusHighlight: {
-    //       opacity: 0,
-    //       backgroundColor: "currentcolor",
-    //     },
-    //   },
-    // },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
     MuiPaper: {
+      defaultProps: {
+        elevation: 0,
+      },
       styleOverrides: {
         root: {
           backgroundImage: "none",
+          boxShadow: `${
+            mode === "light" ? "rgba(149, 157, 165, 0.2) 0px 8px 24px" : "none"
+          }`,
         },
       },
     },
   },
 });
-
-export default responsiveFontSizes(theme);
+export default getThemeTokens;

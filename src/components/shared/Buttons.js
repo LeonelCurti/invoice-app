@@ -1,7 +1,7 @@
 import { styled, Button } from "@mui/material";
 
 export const ButtonStyle = styled((props) => (
-  <Button variant="contained" disableElevation {...props} />
+  <Button variant="contained"  {...props} />
 ))(({ theme }) => ({
   textTransform: "none",
   borderRadius: "20px",
@@ -13,14 +13,15 @@ export const ButtonStyle = styled((props) => (
   },
 }));
 export const CancelButtonStyle = styled((props) => (
-  <Button variant="contained" disableElevation {...props} />
+  <Button variant="contained" {...props} />
 ))(({ theme }) => ({
   textTransform: "none",
   borderRadius: "20px",
-  backgroundColor: theme.palette.background.light,
+  // color:'inherit',
+  backgroundColor: theme.palette.background.dark,
   fontSize: { xs: 16, sm: 15 },
   "&:hover": {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.background.darker,
   },
   "& .MuiSvgIcon-root": {
     backgroundColor: "white",

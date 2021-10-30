@@ -5,7 +5,7 @@ import DatePicker from "./DatePicker";
 import Dropdown from "./Dropdown";
 
 const Subtitle = (props) => (
-  <Typography color="primary" variant="subtitle2" gutterBottom mt={3} mb={2}>
+  <Typography color="primary" variant="subtitle1" gutterBottom mt={3} mb={2}>
     {props.title}
   </Typography>
 );

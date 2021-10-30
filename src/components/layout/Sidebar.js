@@ -1,25 +1,30 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import LightModeIcon from "@mui/icons-material/LightMode";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import IconButton from "@mui/material/IconButton";
-
+import ColorModeContext from "../../context/ThemeContext";
 const drawerWidth = 64;
 
 const Sidebar = () => {
+  const { colorMode } = React.useContext(ColorModeContext);
+  const theme = useTheme();
   return (
     <Drawer
-      sx={{       
+      sx={{
         display: { xs: "none", md: "block" },
         width: drawerWidth,
-        flexShrink: 0,     
+        backgroundColor:'background.default',        
+        flexShrink: 0,
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
           borderTopRightRadius: "15px",
-          borderBottomRightRadius: "15px",   
+          borderBottomRightRadius: "15px",
           borderStyle: "none",
         },
       }}
@@ -32,6 +37,7 @@ const Sidebar = () => {
           flexDirection: "column",
           justifyContent: "space-between",
           height: "100%",
+          backgroundColor: "background.sideMenu",
         }}
       >
         <Box
@@ -65,10 +71,14 @@ const Sidebar = () => {
             aria-label="account of current user"
             aria-controls="primary-search-account-menu"
             aria-haspopup="true"
-            color="inherit"
-            sx={{ marginY: 1 }}
+            onClick={colorMode.toggleColorMode}
+            sx={{ marginY: 1, color: "common.white" }}
           >
-            <LightModeIcon />
+            {theme.palette.mode === "dark" ? (
+              <Brightness7Icon />
+            ) : (
+              <Brightness4Icon />
+            )}
           </IconButton>
           <Divider width="100%" />
           <IconButton
@@ -76,8 +86,7 @@ const Sidebar = () => {
             aria-label="account of current user"
             aria-controls="primary-search-account-menu"
             aria-haspopup="true"
-            color="inherit"
-            sx={{ marginY: 1 }}
+            sx={{ marginY: 1, color: "common.white" }}
           >
             <AccountCircle fontSize="large" />
           </IconButton>

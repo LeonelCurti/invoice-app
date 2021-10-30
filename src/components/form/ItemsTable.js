@@ -16,7 +16,7 @@ const BillingItemsTable = ({ items }) => {
     <React.Fragment>
       <Typography
         color="primary"
-        variant="subtitle2"
+        variant="subtitle1"
         gutterBottom
         mt={3}
         mb={2}

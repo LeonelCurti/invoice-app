@@ -1,12 +1,11 @@
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./styles/theme";
 import "./styles/App.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import Routes from "./routes";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <CssBaseline />
       <Routes />
     </ThemeProvider>

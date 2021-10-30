@@ -1,9 +1,14 @@
 import React from "react";
 import { AppBar, IconButton, Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import LightModeIcon from "@mui/icons-material/LightMode";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Divider from "@mui/material/Divider";
+import ColorModeContext from "../../context/ThemeContext";
 const Topbar = () => {
+  const { colorMode } = React.useContext(ColorModeContext);
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -11,7 +16,7 @@ const Topbar = () => {
         display: { xs: "block", md: "none" },
       }}
     >
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: "background.topMenu" }}>
         <Box
           sx={{
             display: "flex",
@@ -23,7 +28,7 @@ const Topbar = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
-              backgroundColor: "primary.main",
+              backgroundColor: "primary.dark",
               borderBottomRightRadius: "15px",
               borderTopRightRadius: "15px",
               width: 60,
@@ -53,16 +58,17 @@ const Topbar = () => {
               aria-controls="primary-search-account-menu"
               aria-haspopup="true"
               color="inherit"
+              onClick={colorMode.toggleColorMode}
               sx={{ padding: 2 }}
             >
-              <LightModeIcon />
+              {theme.palette.mode === "dark" ? (
+                <Brightness7Icon />
+              ) : (
+                <Brightness4Icon />
+              )}
             </IconButton>
             <Divider orientation="vertical" />
-            <IconButton           
-              size="small"            
-              color="inherit"
-              sx={{ padding: 2 }}
-            >
+            <IconButton size="small" color="inherit" sx={{ padding: 2 }}>
               <AccountCircle />
             </IconButton>
           </Box>

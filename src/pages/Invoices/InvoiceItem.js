@@ -7,23 +7,21 @@ import { upperCaseFirstLetter } from "../../utils";
 import { ChipStyle } from "../../components/ChipStyle";
 import clsx from "clsx";
 
-const CardStyle = styled((props) => <Card elevation={0} {...props} />)(
-  ({ theme }) => ({
-    width: "100%",
-    border: `2px solid transparent`,
-    padding: theme.spacing(2),
-    borderRadius: "10px",
-    [theme.breakpoints.up("sm")]: {   
-      "&.MuiPaper-root:hover": {
-        border: `2px solid ${theme.palette.primary.dark}`,
-      },
+const CardStyle = styled((props) => <Card {...props} />)(({ theme }) => ({
+  width: "100%",
+  border: "1px solid transparent", 
+  padding: theme.spacing(2),
+  borderRadius: "10px",
+  [theme.breakpoints.up("sm")]: {
+    "&.MuiPaper-root:hover": {
+      border: `1px solid ${theme.palette.primary.dark}`,
     },
-    transition: "0.2s",
-    "& .MuiChip-root": {
-      cursor: "pointer",
-    },
-  })
-);
+  },
+  // transition: "0.2s",
+  "& .MuiChip-root": {
+    cursor: "pointer",
+  },
+}));
 
 export default function InvoiceItem(props) {
   const { id, date, client, totalAmount, status } = props.invoice;
@@ -48,7 +46,7 @@ export default function InvoiceItem(props) {
           sm
           sx={{ order: 1, textAlign: { xs: "left", sm: "center" } }}
         >
-          <Typography>
+          <Typography variant="body1" fontWeight={500}>
             <span style={{ color: "#7986cb" }}>#</span>
             {id}
           </Typography>
@@ -76,7 +74,7 @@ export default function InvoiceItem(props) {
             textAlign: { xs: "right", sm: "left" },
           }}
         >
-          <Typography sx={{ paddingLeft: { sm: 2, md: 3 } }} variant="body2">
+          <Typography sx={{ paddingLeft: { sm: 2, md: 3 } }} variant="body1">
             {client.name}
           </Typography>
         </Grid>
@@ -93,7 +91,7 @@ export default function InvoiceItem(props) {
             },
           }}
         >
-          <Typography variant="h6">
+          <Typography variant="body1" fontWeight={500}>
             <span>£</span> {totalAmount}
           </Typography>
         </Grid>

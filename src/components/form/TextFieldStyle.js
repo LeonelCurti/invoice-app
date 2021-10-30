@@ -10,7 +10,7 @@ export const TextFieldStyle = styled((props) => (
 ))(({ theme }) => ({
   "& label": {
     color: theme.palette.text.primary,
-    fontSize: "1.1rem",
+    fontSize: "1.2rem",
   },
   "& label.Mui-focused": {
     color: theme.palette.text.primary,
@@ -21,7 +21,13 @@ export const TextFieldStyle = styled((props) => (
     borderRadius: "5px",
     padding: "10px 12px",
     border: "1px solid transparent",
+    boxShadow: `${
+      theme.palette.mode === "light"
+        ? "rgba(149, 157, 165, 0.2) 0px 8px 24px"
+        : "none"
+    }`,
     backgroundColor: theme.palette.background.paper,
+    // backgroundColor: 'red',
     "&:focus": {
       border: `1px solid ${theme.palette.primary.main}`,
     },
