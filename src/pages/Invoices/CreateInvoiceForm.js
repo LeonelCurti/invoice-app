@@ -24,7 +24,7 @@ const CreateInvoiceForm = ({
           pt: 3,
           pb: 1,
         }}>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           New Invoice
         </Typography>
 
@@ -36,10 +36,10 @@ const CreateInvoiceForm = ({
           onClick={() => {}}
           sx={{
             marginY: 2,
-            backgroundColor: "background.paper",
-            "&:hover": {
-              backgroundColor: "background.light",
-            },
+            // backgroundColor: "background.paper",
+            // "&:hover": {
+            //   backgroundColor: "background.light",
+            // },
           }}
         >
           + Add New Item

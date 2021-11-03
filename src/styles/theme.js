@@ -30,13 +30,20 @@ const getThemeTokens = (mode) => ({
             default: "#151826",
             paper: "#232740",
             light: "#2a2f4e",
+            dark: "#5e5e5e",
+            darker: "#4a4a4a",
             topMenu: "#232740",
             sideMenu: "#232740",
           },
         }),
   },
   typography: {
-    useNextVariants: true,
+    h5: {
+      fontWeight: 500,
+    },
+    subtitle1: {
+      fontWeight: 500,
+    },
   },
   zIndex: {
     appBar: 1200,

@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import SideDrawer from "../../components/SideDrawer";
 import Fields from "../../components/form/Fields";
 import ItemsTable from "../../components/form/ItemsTable";
@@ -18,9 +19,9 @@ const EditInvoiceForm = ({ invoice, open, onCancel }) => {
           px: { xs: 3, sm: 4 },
           pt: 3,
           pb: 1,
-        }} 
+        }}
       >
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           Edit<span style={{ color: "#7986cb" }}> #</span>
           {invoice.id}
         </Typography>

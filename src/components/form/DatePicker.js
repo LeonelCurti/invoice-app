@@ -6,7 +6,7 @@ import DatePicker from "@mui/lab/DatePicker";
 import { Box } from "@mui/system";
 
 export default function BasicDatePicker({ label }) {
-  const [value, setValue] = React.useState(null);
+  const [value, setValue] = React.useState(new Date());
 
   return (
     <LocalizationProvider dateAdapter={DateAdapter}>
@@ -43,9 +43,9 @@ export default function BasicDatePicker({ label }) {
         <DatePicker
           InputProps={{
             disableUnderline: true,
-            disableRipple: true,
+            // disableRipple: true,
           }}
-          desktopModeMediaQuery="(min-width:600px)"
+          // desktopModeMediaQuery="(min-width:600px)"
           label={label}
           value={value}
           onChange={(newValue) => {

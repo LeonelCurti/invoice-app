@@ -9,7 +9,7 @@ export const TextFieldStyle = styled((props) => (
   />
 ))(({ theme }) => ({
   "& label": {
-    color: theme.palette.text.primary,
+    color: theme.palette.text.primary,    
     fontSize: "1.2rem",
   },
   "& label.Mui-focused": {

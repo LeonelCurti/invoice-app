@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { TextFieldStyle } from "./TextFieldStyle";
-const BillingItemsTable = ({ items }) => {
+const ItemsTable = ({ items }) => {
   return (
     <React.Fragment>
       <Typography
@@ -26,7 +26,7 @@ const BillingItemsTable = ({ items }) => {
       <TableContainer>
         <Table
           sx={{
-            minWidth: 400,
+            // minWidth: 400,
             minHeight: 82,
             "& .MuiTableCell-root": {
               // padding: 1,
@@ -87,4 +87,4 @@ const BillingItemsTable = ({ items }) => {
   );
 };
 
-export default BillingItemsTable;
+export default ItemsTable;
