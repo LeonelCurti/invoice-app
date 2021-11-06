@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Select,
-  MenuItem,
-  useMediaQuery,
-  FormControl,
-  useTheme,
-} from "@mui/material";
+import { Select, MenuItem, FormControl } from "@mui/material";
 const Dropdown = ({ filter, handleChange }) => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <FormControl
       variant="standard"
@@ -16,7 +8,8 @@ const Dropdown = ({ filter, handleChange }) => {
         marginLeft: {
           sm: 1,
         },
-        minWidth: 80,
+        textAlign: "center",
+        minWidth: 70,
       }}
     >
       <Select
@@ -30,20 +23,28 @@ const Dropdown = ({ filter, handleChange }) => {
             color: "primary.main",
           },
           "& .MuiSelect-select:focus": {
-            backgroundColor: "backgroundInvoicePage.main",
+            backgroundColor: "background.default",
+          },
+        }}
+        MenuProps={{
+          sx: {
+            "& .MuiList-root": {
+              minWidth: 150,
+              backgroundColor: "background.light",
+            },
+            "& .MuiPaper-root": {
+              boxShadow: 3,
+            },
           },
         }}
         disableUnderline
         onChange={handleChange}
         inputProps={{ "aria-label": "Without label" }}
       >
-        <MenuItem value="" disabled>
-          {matches ? "Filter by Status" : "Filter"}
-        </MenuItem>
-        <MenuItem value={10}>All</MenuItem>
-        <MenuItem value={20}>Draft</MenuItem>
-        <MenuItem value={30}>Pending</MenuItem>
-        <MenuItem value={40}>Paid</MenuItem>
+        <MenuItem value={"all"}>All</MenuItem>
+        <MenuItem value={"draft"}>Draft</MenuItem>
+        <MenuItem value={"pending"}>Pending</MenuItem>
+        <MenuItem value={"paid"}>Paid</MenuItem>
       </Select>
     </FormControl>
   );
