@@ -8,12 +8,15 @@ import CreateInvoiceForm from "./CreateInvoiceForm";
 
 const Invoices = () => {
   const [open, setOpen] = useState(false);
-  const [invoiceFilter, setInvoiceFilter] = useState("all"); //all, draft, pending or paid
-  
-  const filteredInvoices = () =>
-    invoiceFilter === "all"
+  const [filter, setfilter] = useState("all"); //all, draft, pending or paid
+
+  const filteredInvoices =
+    filter === "all"
       ? demoInvoices
-      : demoInvoices.filter((invoice) => invoice.status === invoiceFilter);
+      : demoInvoices.filter((invoice) => invoice.status === filter);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Layout>
@@ -27,21 +30,16 @@ const Invoices = () => {
       >
         <Container maxWidth="md">
           <Header
-            filter={invoiceFilter}
-            setFilter={setInvoiceFilter}
-            onOpenForm={() => setOpen(true)}
+            filter={filter}
+            setFilter={setfilter}
+            onOpenForm={handleOpen}
           />
           <Box mt={3}>
-            <InvoiceList invoices={filteredInvoices()} />
+            <InvoiceList invoices={filteredInvoices} />
           </Box>
         </Container>
       </Box>
-      <CreateInvoiceForm
-        open={open}
-        onSaveAsPending={() => setOpen(false)}
-        onSaveAsDraft={() => setOpen(false)}
-        onDiscard={() => setOpen(false)}
-      />
+      <CreateInvoiceForm open={open} onClose={handleClose} />
     </Layout>
   );
 };

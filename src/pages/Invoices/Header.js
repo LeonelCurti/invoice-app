@@ -9,14 +9,10 @@ const Header = ({ onOpenForm, filter, setFilter }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
-  const handleFilter = (event) => {
-    console.log(event.target.value);
+  const handleFilter = (event) => {    
     setFilter(event.target.value);
   };
-  // const handleClose = (event) => {
-  //   console.log(event.target.value);
-  //   // setFilter(event.target.value);
-  // };
+
 
   return (
     <Box display="flex" alignItems="center">

@@ -5,9 +5,7 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
 import { Box } from "@mui/system";
 
-export default function BasicDatePicker({ label }) {
-  const [value, setValue] = React.useState(new Date());
-
+export default function BasicDatePicker(props) {
   return (
     <LocalizationProvider dateAdapter={DateAdapter}>
       <Box
@@ -46,12 +44,12 @@ export default function BasicDatePicker({ label }) {
             // disableRipple: true,
           }}
           // desktopModeMediaQuery="(min-width:600px)"
-          label={label}
-          value={value}
-          onChange={(newValue) => {
-            setValue(newValue);
-          }}
-          renderInput={(params) => <TextFieldStyle fullWidth {...params} />}
+          label={props.label}
+          value={props.value}
+          name={props.name}          
+          onBlur={props.onBlur}
+          onChange={props.onChange}
+          renderInput={(params) => <TextFieldStyle helperText={props.helperText} error={props.error} fullWidth {...params} />}
         />
       </Box>
     </LocalizationProvider>

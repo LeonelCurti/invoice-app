@@ -3,81 +3,61 @@ import { Box, Typography } from "@mui/material";
 import SideDrawer from "../../components/SideDrawer";
 import Fields from "../../components/form/Fields";
 import ItemsTable from "../../components/form/ItemsTable";
+import CreateInvoiceActions from "./CreateInvoiceActions";
 import {
-  ButtonStyle,
-  CancelButtonStyle,
-} from "../../components/shared/Buttons";
+  validationSchema,
+  initialValues,
+} from "../../components/form/validationSchema";
+import { Formik } from "formik";
 
-const CreateInvoiceForm = ({
-  open,
-  onSaveAsDraft,
-  onSaveAsPending,
-  onDiscard,
-}) => {
-  const [items, setItems] = React.useState([]);
+const CreateInvoiceForm = ({ open, onClose }) => {
+  const onSaveAsPending = (values) => {
+    alert(JSON.stringify(values, null, 2));
+    //add complete invoice to the list with pending status
+  };
+
+  const onSaveAsDraft = (values) => {
+    alert(JSON.stringify(values.items, null, 2));
+    //add incomplete invoice to the list
+  };
+  const onDiscard = () => {
+    onClose();    
+  };
+
   return (
-    <SideDrawer open={open} onClose={onDiscard}>
-      <Box sx={{
+    <SideDrawer open={open} onClose={onClose}>
+      <Box
+        sx={{
           display: "flex",
           flexDirection: "column",
           px: { xs: 3, sm: 4 },
           pt: 3,
           pb: 1,
-        }}>
+        }}
+      >
         <Typography variant="h5" gutterBottom>
           New Invoice
         </Typography>
 
-        <Fields />
-
-        <ItemsTable items={items} />
-
-        <ButtonStyle
-          onClick={() => {}}
-          sx={{
-            marginY: 2,
-            // backgroundColor: "background.paper",
-            // "&:hover": {
-            //   backgroundColor: "background.light",
-            // },
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={(values) => {            
+            onSaveAsPending(values);
           }}
         >
-          + Add New Item
-        </ButtonStyle>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            paddingY: 1,
-          }}
-        >
-          <Box
-            sx={{
-              order: { xs: 2, sm: 1 },
-              flexGrow: { xs: 0, sm: 1 },
-              marginTop: { xs: 2, sm: 0 },
-              marginBottom: { xs: 2, sm: 0 },
-            }}
-          >
-            <CancelButtonStyle
-              sx={{ width: { xs: "100%", sm: "auto" } }}
-              onClick={onDiscard}
-            >
-              Discard
-            </CancelButtonStyle>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              order: { xs: 1, sm: 2 },
-              flexDirection: { xs: "column", sm: "row" },
-              gap: 2,
-            }}
-          >
-            <ButtonStyle onClick={onSaveAsDraft}>Save As Draft</ButtonStyle>
-            <ButtonStyle onClick={onSaveAsPending}>Save {"&"} Send</ButtonStyle>
-          </Box>
-        </Box>
+          {(formik) => (
+            <>
+              <Fields />
+              <ItemsTable name="items" />
+              <CreateInvoiceActions
+                onDiscard={onDiscard}
+                onSaveAsDraft={() => onSaveAsDraft(formik.values)}
+                onSaveAsPending={formik.handleSubmit}
+              />
+            </>
+          )}
+        </Formik>
       </Box>
     </SideDrawer>
   );

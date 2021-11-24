@@ -1,117 +1,201 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { TextFieldStyle } from "./TextFieldStyle";
+import { useFormikContext } from 'formik'
+
 import DatePicker from "./DatePicker";
 import Dropdown from "./Dropdown";
+import { getIn } from "formik";
 
-const Subtitle = (props) => (
-  <Typography color="primary" variant="subtitle1" gutterBottom mt={3} mb={2}>
-    {props.title}
-  </Typography>
-);
+const Fields = () => {
+  const formik = useFormikContext()
 
-const BillingInfoForm = () => {
   return (
-    <React.Fragment>
-      <Subtitle title="Bill From" />
+    <>
+      <Typography
+        color="primary"
+        variant="subtitle1"
+        gutterBottom
+        mt={3}
+        mb={2}
+      >
+        Bill From
+      </Typography>
+
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextFieldStyle
             label="Street Address"
-            // helperText="Some important text"
+            name="originAddress.street"
+            {...formik.getFieldProps("originAddress.street")}
+            error={Boolean(
+              getIn(formik.touched, "originAddress.street") &&
+                getIn(formik.errors, "originAddress.street")
+            )}      
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="City"
-            // helperText="Some important text"
+            name="originAddress.city"
+            {...formik.getFieldProps("originAddress.city")}
+            error={Boolean(
+              getIn(formik.touched, "originAddress.city") &&
+                getIn(formik.errors, "originAddress.city")
+            )}           
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Post Code"
-            // helperText="Some important text"
+            name="originAddress.postCode"
+            {...formik.getFieldProps("originAddress.postCode")}
+            error={Boolean(
+              getIn(formik.touched, "originAddress.postCode") &&
+                getIn(formik.errors, "originAddress.postCode")
+            )}        
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Country"
-            // helperText="Some important text"
+            name="originAddress.country"
+            {...formik.getFieldProps("originAddress.country")}
+            error={Boolean(
+              getIn(formik.touched, "originAddress.country") &&
+                getIn(formik.errors, "originAddress.country")
+            )}
             fullWidth
           />
         </Grid>
       </Grid>
+      <Typography
+        color="primary"
+        variant="subtitle1"
+        gutterBottom
+        mt={3}
+        mb={2}
+      >
+        Bill To
+      </Typography>
 
-      <Subtitle title="Bill To" />
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextFieldStyle
             label="Client's Name"
-            // helperText="Some important text"
+            name="client.name"
+            {...formik.getFieldProps("client.name")}
+            error={Boolean(
+              getIn(formik.touched, "client.name") &&
+                getIn(formik.errors, "client.name")
+            )}
             fullWidth
           />
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
             label="Client's Email"
-            // defaultValue=" "
-            // helperText="Some important text"
+            name="client.email"
+            {...formik.getFieldProps("client.email")}
+            error={Boolean(
+              getIn(formik.touched, "client.email") &&
+                getIn(formik.errors, "client.email")
+            )}
             fullWidth
           />
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
             label="Street Address"
-            // helperText="Some important text"
+            name="client.street"
+            {...formik.getFieldProps("client.street")}
+            error={Boolean(
+              getIn(formik.touched, "client.street") &&
+                getIn(formik.errors, "client.street")
+            )}
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="City"
-            // helperText="Some important text"
+            name="client.city"
+            {...formik.getFieldProps("client.city")}
+            error={Boolean(
+              getIn(formik.touched, "client.city") &&
+                getIn(formik.errors, "client.city")
+            )}
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Post Code"
-            // helperText="Some important text"
+            name="client.postCode"
+            {...formik.getFieldProps("client.postCode")}
+            error={Boolean(
+              getIn(formik.touched, "client.postCode") &&
+                getIn(formik.errors, "client.postCode")
+            )}
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextFieldStyle
             label="Country"
-            // helperText="Some important text"
+            name="client.country"
+            {...formik.getFieldProps("client.country")}
+            error={Boolean(
+              getIn(formik.touched, "client.country") &&
+                getIn(formik.errors, "client.country")
+            )}
             fullWidth
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <DatePicker
             label="Invoice Date"
-            // helperText="Some important text"
+            name="createdAt"
+            value={formik.values.createdAt}
+            onChange={(e) => formik.setFieldValue("createdAt", e)}
+            //onBlur={formik.handleBlur}
+            error={Boolean(
+              getIn(formik.touched, "createdAt") &&
+                getIn(formik.errors, "createdAt")
+            )}
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <Dropdown
             label="Payment Terms"
-            // helperText="Some important text"
-          />     
+            name="paymentTerms"
+            value={formik.values.paymentTerms}
+            onChange={(value) => formik.setFieldValue("paymentTerms", value)}
+            //onBlur={formik.handleBlur}
+            error={Boolean(
+              getIn(formik.touched, "paymentTerms") &&
+                getIn(formik.errors, "paymentTerms")
+            )}
+          />
         </Grid>
         <Grid item xs={12}>
           <TextFieldStyle
             label="Project Description"
-            // helperText="Some important text"
+            name="description"
+            {...formik.getFieldProps("description")}
+            error={Boolean(
+              getIn(formik.touched, "description") &&
+                getIn(formik.errors, "description")
+            )}
             fullWidth
           />
         </Grid>
       </Grid>
-    </React.Fragment>
+    </>
   );
 };
 
-export default BillingInfoForm;
+export default Fields;

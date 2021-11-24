@@ -43,10 +43,10 @@ const InvoiceDetail = ({ invoice }) => {
             alignItems: { xs: "flex-start", sm: "flex-end" },
           }}
         >
-          <Typography>19 Inion Terrace</Typography>
-          <Typography>London</Typography>
-          <Typography>EI3EZ</Typography>
-          <Typography>United Kindom</Typography>
+          <Typography>{invoice.originAddress.street}</Typography>
+          <Typography>{invoice.originAddress.city}</Typography>
+          <Typography>{invoice.originAddress.postCode}</Typography>
+          <Typography>{invoice.originAddress.city}</Typography>
         </Box>
       </Box>
       {/* invoice info */}
@@ -63,13 +63,13 @@ const InvoiceDetail = ({ invoice }) => {
             <Typography variant="body2" gutterBottom>
               Invoice Date
             </Typography>
-            <Typography variant="h6">{invoice.date}</Typography>
+            <Typography variant="h6">{invoice.createdAt}</Typography>
           </Box>
           <Box mt={2}>
             <Typography variant="body2" gutterBottom>
               Payment Due
             </Typography>
-            <Typography variant="h6">{invoice.date}</Typography>
+            <Typography variant="h6">{invoice.paymentDue}</Typography>
           </Box>
         </Box>
         <Box display="flex" flexDirection="column">

@@ -7,7 +7,7 @@ import NavigationBack from "./NavigationBack";
 import Header from "./Header";
 import InvoiceDetail from "./InvoiceDetail";
 import EditInvoiceForm from "./EditInvoiceForm";
-import demoData from "../Invoices/data";
+import demoData from "../../data/data.json";
 
 const Invoice = () => {
   const { invoiceId } = useParams();
