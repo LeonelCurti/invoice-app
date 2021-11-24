@@ -24,7 +24,7 @@ const CardStyle = styled((props) => <Card {...props} />)(({ theme }) => ({
 }));
 
 export default function InvoiceItem(props) {
-  const { id, date, client, totalAmount, status } = props.invoice;
+  const { id, createdAt, client, totalAmount, status } = props.invoice;
   let history = useHistory();
 
   const handleViewInvoice = () => {
@@ -63,7 +63,7 @@ export default function InvoiceItem(props) {
             },
           }}
         >
-          <Typography variant="body2"> {`Due ${date}`}</Typography>
+          <Typography variant="body2"> {`Due ${createdAt}`}</Typography>
         </Grid>
         <Grid
           item

@@ -14,7 +14,7 @@
     "client": {
       "name": "Jensen Huang",
       "email": "jensenhuang@mail.com",
-      "address": "84 Church Way",
+      "street": "84 Church Way",
       "city": "Bradford",
       "postCode": "BD19PB",
       "country": "United Kindom"
@@ -52,7 +52,7 @@
     "client": {
       "name": "Alex Grim",
       "email": "alexgrim@mail.com",
-      "address": "84 Church Way",
+      "street": "84 Church Way",
       "city": "Bradford",
       "postCode": "BD19PB",
       "country": "United Kindom"
@@ -88,7 +88,7 @@
     "client": {
       "name": "Jhon Morrison",
       "email": "jhonmorrison@mail.com",
-      "address": "84 Church Way",
+      "street": "84 Church Way",
       "city": "Bradford",
       "postCode": "BD19PB",
       "country": "United Kindom"
@@ -124,7 +124,7 @@
     "client": {
       "name": "Alysa Werner",
       "email": "alysawerner@mail.com",
-      "address": "84 Church Way",
+      "street": "84 Church Way",
       "city": "Bradford",
       "postCode": "BD19PB",
       "country": "United Kindom"
@@ -160,7 +160,7 @@
     "client": {
       "name": "Mellisa Clarke",
       "email": "mellisaclarke@mail.com",
-      "address": "84 Church Way",
+      "street": "84 Church Way",
       "city": "Bradford",
       "postCode": "BD19PB",
       "country": "United Kindom"
@@ -196,7 +196,7 @@
     "client": {
       "name": "Thomas Wayne",
       "email": "thomaswayne@mail.com",
-      "address": "84 Church Way",
+      "street": "84 Church Way",
       "city": "Bradford",
       "postCode": "BD19PB",
       "country": "United Kindom"
@@ -232,7 +232,7 @@
     "client": {
       "name": "Anita Wainwright",
       "email": "anitawainwright@mail.com",
-      "address": "84 Church Way",
+      "street": "84 Church Way",
       "city": "Bradford",
       "postCode": "BD19PB",
       "country": "United Kindom"

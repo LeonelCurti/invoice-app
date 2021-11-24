@@ -4,14 +4,26 @@ import Typography from "@mui/material/Typography";
 import SideDrawer from "../../components/SideDrawer";
 import Fields from "../../components/form/Fields";
 import ItemsTable from "../../components/form/ItemsTable";
+import EditInvoiceActions from "./EditInvoiceActions";
 import {
-  CancelButtonStyle,
-  ButtonStyle,
-} from "../../components/shared/Buttons";
+  validationSchema,
+  initialValues,
+} from "../../components/form/validationSchema";
+import { Formik } from "formik";
 
-const EditInvoiceForm = ({ invoice, open, onCancel }) => {
+
+const EditInvoiceForm = ({ invoice, open, onClose }) => {
+
+  const onSaveChanges = (values) => {
+    alert(JSON.stringify(values, null, 2));
+    //add incomplete invoice to the list
+  };
+  const onCancel = () => {
+    onClose();    
+  };
+
   return (
-    <SideDrawer open={open} onClose={onCancel}>
+    <SideDrawer open={open} onClose={onClose}>
       <Box
         sx={{
           display: "flex",
@@ -25,36 +37,25 @@ const EditInvoiceForm = ({ invoice, open, onCancel }) => {
           Edit<span style={{ color: "#7986cb" }}> #</span>
           {invoice.id}
         </Typography>
-        <Fields />
-        <ItemsTable items={invoice.items} />
-        <ButtonStyle
-          onClick={() => {}}
-          sx={{
-            marginY: 3,
-            backgroundColor: "background.paper",
+
+        <Formik
+          initialValues={{...initialValues,...invoice}}
+          validationSchema={validationSchema}
+          onSubmit={(values) => {
+            onSaveChanges(values);
           }}
         >
-          + Add New Item
-        </ButtonStyle>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            justifyContent: "flex-end",
-            paddingY: 1,
-            gap: 3,
-          }}
-        >
-          <CancelButtonStyle
-            sx={{ order: { xs: 2, sm: 1 } }}
-            onClick={onCancel}
-          >
-            Cancel
-          </CancelButtonStyle>
-          <ButtonStyle sx={{ order: { xs: 1, sm: 2 } }}>
-            Save Changes
-          </ButtonStyle>
-        </Box>
+          {(formik) => (
+            <>
+              <Fields />
+              <ItemsTable name="items" />
+              <EditInvoiceActions
+                onCancel={onCancel}
+                onSaveChanges={formik.handleSubmit}
+              />
+            </>
+          )}
+        </Formik>
       </Box>
     </SideDrawer>
   );

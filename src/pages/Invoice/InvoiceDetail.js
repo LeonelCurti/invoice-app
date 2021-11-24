@@ -3,6 +3,7 @@ import { Box, Card, Typography } from "@mui/material";
 import ItemsList from "./ItemsList";
 
 const InvoiceDetail = ({ invoice }) => {
+
   return (
     <Card
       sx={{
@@ -79,7 +80,7 @@ const InvoiceDetail = ({ invoice }) => {
           <Typography gutterBottom variant="h6">
             {invoice.client.name}
           </Typography>
-          <Typography>{invoice.client.address}</Typography>
+          <Typography>{invoice.client.street}</Typography>
           <Typography>{invoice.client.city}</Typography>
           <Typography>{invoice.client.postCode}</Typography>
           <Typography>{invoice.client.country}</Typography>

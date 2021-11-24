@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Box } from "@mui/material";
-import demoInvoices from "./data";
+import dummyData from "./../../data/data.json";
 import Header from "./Header";
 import InvoiceList from "./InvoicesList";
 import Layout from "../../components/layout/Layout";
@@ -12,8 +12,8 @@ const Invoices = () => {
 
   const filteredInvoices =
     filter === "all"
-      ? demoInvoices
-      : demoInvoices.filter((invoice) => invoice.status === filter);
+      ? dummyData
+      : dummyData.filter((invoice) => invoice.status === filter);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

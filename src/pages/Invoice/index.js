@@ -12,7 +12,9 @@ import demoData from "../../data/data.json";
 const Invoice = () => {
   const { invoiceId } = useParams();
   const [open, setOpen] = React.useState(false);
-  const invoiceFound = demoData.find((invoice) => invoice.id === invoiceId);
+  const invoiceFound = demoData.find((invoice) => invoice.id === invoiceId); 
+  
+ const handleClose = () => setOpen(false)
 
   return (
     <Layout>
@@ -30,7 +32,7 @@ const Invoice = () => {
       <EditInvoiceForm
         open={open}
         invoice={invoiceFound}
-        onCancel={() => setOpen(false)}
+        onClose={handleClose}
       />
     </Layout>
   );
