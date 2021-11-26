@@ -161,7 +161,7 @@ const Fields = () => {
             name="createdAt"
             value={formik.values.createdAt}
             onChange={(e) => formik.setFieldValue("createdAt", e)}
-            //onBlur={formik.handleBlur}
+            onBlur={formik.handleBlur}
             error={Boolean(
               getIn(formik.touched, "createdAt") &&
                 getIn(formik.errors, "createdAt")
@@ -174,7 +174,7 @@ const Fields = () => {
             name="paymentTerms"
             value={formik.values.paymentTerms}
             onChange={(value) => formik.setFieldValue("paymentTerms", value)}
-            //onBlur={formik.handleBlur}
+            onBlur={formik.handleBlur}
             error={Boolean(
               getIn(formik.touched, "paymentTerms") &&
                 getIn(formik.errors, "paymentTerms")

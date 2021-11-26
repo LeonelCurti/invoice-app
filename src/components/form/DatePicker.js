@@ -1,13 +1,13 @@
 import React from "react";
 import { TextFieldStyle } from "./TextFieldStyle";
-import DateAdapter from "@mui/lab/AdapterMoment";
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+import MuiDatePicker from "@mui/lab/DatePicker";
 import { Box } from "@mui/system";
 
-export default function BasicDatePicker(props) {
+export default function DatePicker(props) {
   return (
-    <LocalizationProvider dateAdapter={DateAdapter}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Box
         sx={{
           boxSizing: "border-box",
@@ -38,7 +38,7 @@ export default function BasicDatePicker(props) {
           },
         }}
       >
-        <DatePicker
+        <MuiDatePicker
           InputProps={{
             disableUnderline: true,
             // disableRipple: true,
@@ -47,9 +47,9 @@ export default function BasicDatePicker(props) {
           label={props.label}
           value={props.value}
           name={props.name}          
-          onBlur={props.onBlur}
+          //onBlur={props.onBlur}
           onChange={props.onChange}
-          renderInput={(params) => <TextFieldStyle helperText={props.helperText} error={props.error} fullWidth {...params} />}
+          renderInput={(params) => <TextFieldStyle error={props.error} fullWidth {...params} />}
         />
       </Box>
     </LocalizationProvider>

@@ -70,7 +70,7 @@ const ItemsTable = ({ name }) => {
                                 getIn(formik.touched, `items[${index}].name`) &&
                                   getIn(formik.errors, `items[${index}].name`)
                               )}
-                              sx={{ minWidth: "180px" }}
+                              sx={{ minWidth: "200px" }}
                             />
                           </TableCell>
                           <TableCell>
@@ -82,7 +82,7 @@ const ItemsTable = ({ name }) => {
                                 getIn(formik.touched, `items[${index}].qty`) &&
                                   getIn(formik.errors, `items[${index}].qty`)
                               )}
-                              sx={{ minWidth: "50px" }}
+                              sx={{ width: "70px" }}
                             />
                           </TableCell>
                           <TableCell>
@@ -97,11 +97,29 @@ const ItemsTable = ({ name }) => {
                                 ) &&
                                   getIn(formik.errors, `items[${index}].price`)
                               )}
-                              sx={{ width: "85px" }}
+                              sx={{ width: "100px" }}
                             />
                           </TableCell>
                           <TableCell>
-                            {(item.price * item.qty).toFixed(2)}
+                            <TextFieldStyle
+                              id="standard-helperText"
+                              hiddenLabel
+                              value={(item.price * item.qty).toFixed(2)}
+                              disabled
+                              sx={{
+                                width: "100px",
+                                "& .MuiInputBase-input": {
+                                  boxShadow: "none",
+                                  //textOverflow: 'ellipsis',
+                                  //overflow:'hidden',
+                                  backgroundColor: "transparent",
+                                  color: (theme) =>
+                                      theme.palette.text.primary,
+                                    WebkitTextFillColor: (theme) =>
+                                      theme.palette.text.primary,
+                                },                        
+                              }}
+                            />
                           </TableCell>
                           <TableCell>
                             <IconButton
