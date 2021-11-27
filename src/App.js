@@ -1,7 +1,7 @@
 import "./styles/App.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import Routes from "./routes";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider } from "./context/theme.context";
 import { InvoicesProvider } from "./context/invoice.context";
 
 function App() {

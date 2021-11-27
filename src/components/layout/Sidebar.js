@@ -7,7 +7,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import IconButton from "@mui/material/IconButton";
-import ColorModeContext from "../../context/ThemeContext";
+import { ColorModeContext } from "../../context/theme.context";
 const drawerWidth = 64;
 
 const Sidebar = () => {
@@ -18,7 +18,7 @@ const Sidebar = () => {
       sx={{
         display: { xs: "none", md: "block" },
         width: drawerWidth,
-        backgroundColor:'background.default',        
+        backgroundColor: "background.default",
         flexShrink: 0,
         "& .MuiDrawer-paper": {
           width: drawerWidth,

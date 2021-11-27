@@ -4,13 +4,12 @@ import {
   ThemeProvider as MuiThemeProvider,
   responsiveFontSizes,
 } from "@mui/material/styles";
-import getThemeTokens from '../styles/theme'
+import getThemeTokens from "../styles/theme";
 
-const ColorModeContext = React.createContext();
+export const ColorModeContext = React.createContext();
 ColorModeContext.displayName = "colorMode";
 
-
-const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
   const [mode, setMode] = React.useState("dark");
   const colorMode = React.useMemo(
     () => ({
@@ -36,5 +35,3 @@ const ThemeProvider = ({ children }) => {
     </ColorModeContext.Provider>
   );
 };
-export { ThemeProvider };
-export default ColorModeContext;

@@ -5,7 +5,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Divider from "@mui/material/Divider";
-import ColorModeContext from "../../context/ThemeContext";
+import {ColorModeContext} from "../../context/theme.context";
 const Topbar = () => {
   const { colorMode } = React.useContext(ColorModeContext);
   const theme = useTheme();
