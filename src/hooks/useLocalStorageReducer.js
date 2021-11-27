@@ -3,8 +3,8 @@ import { useEffect, useReducer } from "react";
 const useLocalStorageReducer = (key, defaultVal, reducer) => {
   const [state, dispatch] = useReducer(reducer, defaultVal, () => {
     let value;
-    try {
-      value = JSON.parse(window.localStorage.getItem(key) || defaultVal);
+    try {    
+      value = JSON.parse(window.localStorage.getItem(key)) || defaultVal;    
     } catch (e) {
       console.log(e);
       value = defaultVal;
@@ -13,7 +13,7 @@ const useLocalStorageReducer = (key, defaultVal, reducer) => {
   });
   useEffect(() => {
     window.localStorage.setItem(key, JSON.stringify(state));
-  }, [state]);
+  }, [state, key]);
   return [state, dispatch];
 };
 

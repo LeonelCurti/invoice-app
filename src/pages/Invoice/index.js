@@ -1,18 +1,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Layout from "../../components/layout/Layout";
 import { Container } from "@mui/material";
 
+import Layout from "../../components/layout/Layout";
 import NavigationBack from "./NavigationBack";
 import Header from "./Header";
 import InvoiceDetail from "./InvoiceDetail";
 import EditInvoiceForm from "./EditInvoiceForm";
-import demoData from "../../data/data.json";
+import invoices from "../../data/invoices.json";
 
 const Invoice = () => {
   const { invoiceId } = useParams();
   const [open, setOpen] = React.useState(false);
-  const invoiceFound = demoData.find((invoice) => invoice.id === invoiceId); 
+  const invoiceFound = invoices.find((invoice) => invoice.id === invoiceId); 
   
  const handleClose = () => setOpen(false)
 

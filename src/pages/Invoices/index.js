@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, Box } from "@mui/material";
-import dummyData from "./../../data/data.json";
 import Header from "./Header";
 import InvoiceList from "./InvoicesList";
 import Layout from "../../components/layout/Layout";
 import CreateInvoiceForm from "./CreateInvoiceForm";
+import { InvoicesContext } from "../../context/invoice.context";
 
 const Invoices = () => {
+  const invoices = useContext(InvoicesContext);
   const [open, setOpen] = useState(false);
   const [filter, setfilter] = useState("all"); //all, draft, pending or paid
 
   const filteredInvoices =
     filter === "all"
-      ? dummyData
-      : dummyData.filter((invoice) => invoice.status === filter);
+      ? invoices
+      : invoices.filter((invoice) => invoice.status === filter);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
