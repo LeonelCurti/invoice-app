@@ -6,10 +6,11 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { upperCaseFirstLetter } from "../../utils";
 import { ChipStyle } from "../../components/ChipStyle";
 import clsx from "clsx";
+import dayjs from "dayjs";
 
 const CardStyle = styled((props) => <Card {...props} />)(({ theme }) => ({
   width: "100%",
-  border: "1px solid transparent", 
+  border: "1px solid transparent",
   padding: theme.spacing(2),
   borderRadius: "10px",
   [theme.breakpoints.up("sm")]: {
@@ -24,7 +25,7 @@ const CardStyle = styled((props) => <Card {...props} />)(({ theme }) => ({
 }));
 
 export default function InvoiceItem(props) {
-  const { id, createdAt, client, totalAmount, status } = props.invoice;
+  const { id, paymentDue, client, totalAmount, status } = props.invoice;
   let history = useHistory();
 
   const handleViewInvoice = () => {
@@ -63,7 +64,9 @@ export default function InvoiceItem(props) {
             },
           }}
         >
-          <Typography variant="body2"> {`Due ${createdAt}`}</Typography>
+          <Typography variant="body2">
+            Due {dayjs(paymentDue).format("DD MMM YYYY")}
+          </Typography>
         </Grid>
         <Grid
           item

@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Card, Typography } from "@mui/material";
 import ItemsList from "./ItemsList";
+import dayjs from "dayjs";
 
 const InvoiceDetail = ({ invoice }) => {
-
   return (
     <Card
       sx={{
@@ -64,13 +64,17 @@ const InvoiceDetail = ({ invoice }) => {
             <Typography variant="body2" gutterBottom>
               Invoice Date
             </Typography>
-            <Typography variant="h6">{invoice.createdAt}</Typography>
+            <Typography variant="h6">
+              {dayjs(invoice.createdAt).format("DD MMM YYYY")}
+            </Typography>
           </Box>
           <Box mt={2}>
             <Typography variant="body2" gutterBottom>
               Payment Due
             </Typography>
-            <Typography variant="h6">{invoice.paymentDue}</Typography>
+            <Typography variant="h6">
+              {dayjs(invoice.paymentDue).format("DD MMM YYYY")}
+            </Typography>
           </Box>
         </Box>
         <Box display="flex" flexDirection="column">

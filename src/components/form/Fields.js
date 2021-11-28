@@ -160,7 +160,7 @@ const Fields = () => {
             label="Invoice Date"
             name="createdAt"
             value={formik.values.createdAt}
-            onChange={(e) => formik.setFieldValue("createdAt", e)}
+            onChange={(value) => formik.setFieldValue("createdAt", value)}
             onBlur={formik.handleBlur}
             error={Boolean(
               getIn(formik.touched, "createdAt") &&

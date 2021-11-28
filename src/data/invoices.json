@@ -1,16 +1,16 @@
 [
   {
     "id": "RT3080",
-    "createdAt": "19 Aug 2021",
-    "paymentDue": "19 Aug 2021",
+    "createdAt": "2021-08-18",
+    "paymentDue": "2021-08-19",
     "customer": "Jensen Huang",
     "description": "Graphic Design",
     "originAddress": {
-			"street": "19 Union Terrace",
-			"city": "London",
-			"postCode": "E1 3EZ",
-			"country": "United Kingdom"
-		},
+      "street": "19 Union Terrace",
+      "city": "London",
+      "postCode": "E1 3EZ",
+      "country": "United Kingdom"
+    },
     "client": {
       "name": "Jensen Huang",
       "email": "jensenhuang@mail.com",
@@ -37,16 +37,16 @@
   },
   {
     "id": "XM9141",
-    "createdAt": "20 Sep 2021",
-    "paymentDue": "20 Sep 2021",
+    "createdAt": "2021-08-21",
+    "paymentDue": "2021-09-10",
     "customer": "Alex Grim",
     "description": "Graphic Design",
     "originAddress": {
-			"street": "19 Union Terrace",
-			"city": "London",
-			"postCode": "E1 3EZ",
-			"country": "United Kingdom"
-		},
+      "street": "19 Union Terrace",
+      "city": "London",
+      "postCode": "E1 3EZ",
+      "country": "United Kingdom"
+    },
     "totalAmount": 556,
     "status": "pending",
     "client": {
@@ -73,16 +73,16 @@
   },
   {
     "id": "RG0314",
-    "createdAt": "01 Oct 2021",
-    "paymentDue": "01 Oct 2021",
+    "createdAt": "2021-09-24",
+    "paymentDue": "2021-10-05",
     "customer": "Jhon Morrison",
     "description": "Graphic Design",
     "originAddress": {
-			"street": "19 Union Terrace",
-			"city": "London",
-			"postCode": "E1 3EZ",
-			"country": "United Kingdom"
-		},
+      "street": "19 Union Terrace",
+      "city": "London",
+      "postCode": "E1 3EZ",
+      "country": "United Kingdom"
+    },
     "totalAmount": 14002.33,
     "status": "paid",
     "client": {
@@ -109,16 +109,16 @@
   },
   {
     "id": "RT2080",
-    "createdAt": "12 Oct 2021",
-    "paymentDue": "12 Oct 2021",
+    "createdAt": "2021-09-24",
+    "paymentDue": "2021-09-29",
     "customer": "Alysa Werner",
     "description": "Graphic Design",
     "originAddress": {
-			"street": "19 Union Terrace",
-			"city": "London",
-			"postCode": "E1 3EZ",
-			"country": "United Kingdom"
-		},
+      "street": "19 Union Terrace",
+      "city": "London",
+      "postCode": "E1 3EZ",
+      "country": "United Kingdom"
+    },
     "totalAmount": 102.04,
     "status": "pending",
     "client": {
@@ -145,16 +145,16 @@
   },
   {
     "id": "aa1449",
-    "createdAt": "14 Oct 2021",
-    "paymentDue": "14 Oct 2021",
+    "createdAt": "2021-10-14",
+    "paymentDue": "2021-10-25",
     "customer": "Mellisa Clarke",
     "description": "Graphic Design",
     "originAddress": {
-			"street": "19 Union Terrace",
-			"city": "London",
-			"postCode": "E1 3EZ",
-			"country": "United Kingdom"
-		},
+      "street": "19 Union Terrace",
+      "city": "London",
+      "postCode": "E1 3EZ",
+      "country": "United Kingdom"
+    },
     "totalAmount": 4032.33,
     "status": "pending",
     "client": {
@@ -165,7 +165,7 @@
       "postCode": "BD19PB",
       "country": "United Kindom"
     },
-    "paymentTerms": "Net 30 Days",
+    "paymentTerms": 30,
     "items": [
       {
         "name": "Banner Design",
@@ -181,16 +181,16 @@
   },
   {
     "id": "Y91411",
-    "createdAt": "31 Oct 2021",
-    "paymentDue": "31 Oct 2021",
+    "createdAt": "2021-10-31",
+    "paymentDue": "2021-11-10",
     "customer": "Thomas Wayne",
     "description": "Graphic Design",
     "originAddress": {
-			"street": "19 Union Terrace",
-			"city": "London",
-			"postCode": "E1 3EZ",
-			"country": "United Kingdom"
-		},
+      "street": "19 Union Terrace",
+      "city": "London",
+      "postCode": "E1 3EZ",
+      "country": "United Kingdom"
+    },
     "totalAmount": 6155.91,
     "status": "pending",
     "client": {
@@ -217,16 +217,16 @@
   },
   {
     "id": "FV2353",
-    "createdAt": "12 Nov 2021",
-    "paymentDue": "12 Nov 2021",
+    "createdAt": "2021-11-12",
+    "paymentDue": "2021-11-22",
     "customer": "Anita Wainwright",
     "description": "Graphic Design",
     "originAddress": {
-			"street": "19 Union Terrace",
-			"city": "London",
-			"postCode": "E1 3EZ",
-			"country": "United Kingdom"
-		},
+      "street": "19 Union Terrace",
+      "city": "London",
+      "postCode": "E1 3EZ",
+      "country": "United Kingdom"
+    },
     "totalAmount": 3102.04,
     "status": "draft",
     "client": {

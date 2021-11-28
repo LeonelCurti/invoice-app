@@ -1,5 +1,4 @@
 const reducer = (state, action) => {
-  console.log(typeof action.payload.createdAt);
   switch (action.type) {
     case "ADD":
       return [...state, action.payload];

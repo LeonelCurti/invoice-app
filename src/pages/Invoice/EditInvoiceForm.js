@@ -11,11 +11,14 @@ import {
   validationSchema,
   initialValues,
 } from "../../components/form/validationSchema";
-
+import dayjs from "dayjs";
 const EditInvoiceForm = ({ invoice, open, onClose }) => {
   const dispatch = useContext(DispatchContext);
   const onSaveChanges = (values) => {
-    alert('Invoice edited');
+    values.createdAt = dayjs(values.createdAt).format("YYYY-MM-DD");
+    values.paymentDue = dayjs(values.createdAt)
+      .add(Number(values.paymentTerms), "day")
+      .format("YYYY-MM-DD");
     dispatch({ type: "EDIT", id: invoice.id, payload: values });
     onClose();
   };
