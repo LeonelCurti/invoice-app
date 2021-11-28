@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { InvoicesContext } from "../../context/invoice.context";
 import { Container } from "@mui/material";
 
 import Layout from "../../components/layout/Layout";
@@ -7,33 +8,40 @@ import NavigationBack from "./NavigationBack";
 import Header from "./Header";
 import InvoiceDetail from "./InvoiceDetail";
 import EditInvoiceForm from "./EditInvoiceForm";
-import invoices from "../../data/invoices.json";
 
 const Invoice = () => {
+  const invoices = useContext(InvoicesContext);
   const { invoiceId } = useParams();
-  const [open, setOpen] = React.useState(false);
-  const invoiceFound = invoices.find((invoice) => invoice.id === invoiceId); 
+  const [open, setOpen] = useState(false);
+  const [invoiceSelected, setinvoiceSelected] = useState(null);
   
- const handleClose = () => setOpen(false)
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    const invoice = invoices.find((invoice) => invoice.id === invoiceId);
+    setinvoiceSelected(invoice);
+  }, [invoices, invoiceId]);
 
   return (
     <Layout>
-      <Container maxWidth="md">
-        <NavigationBack />
-        <Header
-          status={invoiceFound.status}
-          onEdit={() => setOpen(true)}
-          onDelete={() => {}}
-          onMarkAsPaid={() => {}}
-          onMarkAsPending={() => {}}
-        />
-        <InvoiceDetail invoice={invoiceFound} />
-      </Container>
-      <EditInvoiceForm
-        open={open}
-        invoice={invoiceFound}
-        onClose={handleClose}
-      />
+      {invoiceSelected ? (
+        <>
+          <Container maxWidth="md">
+            <NavigationBack />
+
+            <Header invoice={invoiceSelected} onEdit={handleOpen} />
+            <InvoiceDetail invoice={invoiceSelected} />
+          </Container>
+          <EditInvoiceForm
+            open={open}
+            invoice={invoiceSelected}
+            onClose={handleClose}
+          />
+        </>
+      ) : (
+        "loading..."
+      )}
     </Layout>
   );
 };

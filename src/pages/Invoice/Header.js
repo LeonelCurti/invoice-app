@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router";
+import { DispatchContext } from "../../context/invoice.context";
 import { Box, Card, Typography } from "@mui/material";
 import { upperCaseFirstLetter } from "../../utils";
 import { ChipStyle } from "../../components/ChipStyle";
@@ -8,13 +10,20 @@ import {
   CancelButtonStyle,
 } from "../../components/shared/Buttons";
 
-const invoiceActions = ({
-  status,
-  onEdit,
-  onDelete,
-  onMarkAsPending,
-  onMarkAsPaid,
-}) => {
+const Header = ({ invoice: { id, status }, onEdit }) => {
+  const dispatch = useContext(DispatchContext);
+  const history = useHistory();  
+
+  const onDelete = () => {
+    dispatch({ type: "DELETE", id });
+    history.push("/invoices");
+  };
+  const onMarkAsPaid = () =>
+    dispatch({ type: "EDIT", id, payload: { status: "paid" } });
+
+  const onMarkAsPending = () =>
+    dispatch({ type: "EDIT", id, payload: { status: "pending" } });
+
   return (
     <Card
       sx={{
@@ -73,4 +82,4 @@ const invoiceActions = ({
   );
 };
 
-export default invoiceActions;
+export default Header;

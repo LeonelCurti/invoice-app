@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Formik } from "formik";
+import { DispatchContext } from "../../context/invoice.context";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SideDrawer from "../../components/SideDrawer";
@@ -9,17 +11,16 @@ import {
   validationSchema,
   initialValues,
 } from "../../components/form/validationSchema";
-import { Formik } from "formik";
-
 
 const EditInvoiceForm = ({ invoice, open, onClose }) => {
-
+  const dispatch = useContext(DispatchContext);
   const onSaveChanges = (values) => {
-    alert(JSON.stringify(values, null, 2));
-    //add incomplete invoice to the list
+    alert('Invoice edited');
+    dispatch({ type: "EDIT", id: invoice.id, payload: values });
+    onClose();
   };
   const onCancel = () => {
-    onClose();    
+    onClose();
   };
 
   return (
@@ -39,7 +40,7 @@ const EditInvoiceForm = ({ invoice, open, onClose }) => {
         </Typography>
 
         <Formik
-          initialValues={{...initialValues,...invoice}}
+          initialValues={{ ...initialValues, ...invoice }}
           validationSchema={validationSchema}
           onSubmit={(values) => {
             onSaveChanges(values);
