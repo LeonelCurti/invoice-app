@@ -24,8 +24,8 @@ const CardStyle = styled((props) => <Card {...props} />)(({ theme }) => ({
   },
 }));
 
-export default function InvoiceItem(props) {
-  const { id, paymentDue, client, totalAmount, status } = props.invoice;
+export default function InvoiceItem({ invoice }) {
+  const { id, paymentDue, client, totalAmount, status } = invoice;
   let history = useHistory();
 
   const handleViewInvoice = () => {
@@ -78,7 +78,7 @@ export default function InvoiceItem(props) {
           }}
         >
           <Typography sx={{ paddingLeft: { sm: 2, md: 3 } }} variant="body1">
-            {client.name}
+            {client.name ? client.name : "Not assigned"}
           </Typography>
         </Grid>
         <Grid

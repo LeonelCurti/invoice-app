@@ -12,12 +12,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-
-const calculateOrderTotal = (itemList) => {
-  return itemList
-    .reduce((accum, item) => accum + item.qty * item.price, 0)
-    .toFixed(2);
-};
+import { calcTotalAmount } from "../../utils";
 
 const ItemsList = ({ invoiceItems }) => {
   const theme = useTheme();
@@ -27,7 +22,7 @@ const ItemsList = ({ invoiceItems }) => {
       sx={{
         // paddingX: 3,
         marginY: 3,
-        backgroundColor: "background.light",        
+        backgroundColor: "background.light",
       }}
     >
       {matchesSm ? (
@@ -91,14 +86,14 @@ const ItemsList = ({ invoiceItems }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          color:'common.white',
+          color: "common.white",
           padding: 3,
         }}
       >
         <Typography>Amount Due</Typography>
         <Typography variant="h6">
           <span>£ </span>
-          {calculateOrderTotal(invoiceItems)}
+          {calcTotalAmount(invoiceItems)}
         </Typography>
       </Box>
     </Card>

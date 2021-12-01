@@ -1,27 +1,35 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import SideDrawer from "../../components/SideDrawer";
-import Fields from "../../components/form/Fields";
-import ItemsTable from "../../components/form/ItemsTable";
-import CreateInvoiceActions from "./CreateInvoiceActions";
+import React, { useContext } from "react";
+import { Formik } from "formik";
+import { DispatchContext } from "../../context/invoice.context";
 import {
   validationSchema,
   initialValues,
 } from "../../components/form/validationSchema";
-import { Formik } from "formik";
+import CreateInvoiceActions from "./CreateInvoiceActions";
+import { Box, Typography } from "@mui/material";
+import SideDrawer from "../../components/SideDrawer";
+import Fields from "../../components/form/Fields";
+import ItemsTable from "../../components/form/ItemsTable";
 
 const CreateInvoiceForm = ({ open, onClose }) => {
+  const dispatch = useContext(DispatchContext);
+
   const onSaveAsPending = (values) => {
-    alert(JSON.stringify(values, null, 2));
-    //add complete invoice to the list with pending status
+    //add invoice with validated fields with pending status
+    dispatch({
+      type: "ADD",
+      payload: { ...values, status: "pending" },
+    });
+    onClose();
   };
 
   const onSaveAsDraft = (values) => {
-    alert(JSON.stringify(values.items, null, 2));
-    //add incomplete invoice to the list
-  };
-  const onDiscard = () => {
-    onClose();    
+    //add partial invoice with pending draft
+    dispatch({
+      type: "ADD",
+      payload: { ...values, status: "draft" },
+    });
+    onClose();
   };
 
   return (
@@ -42,7 +50,7 @@ const CreateInvoiceForm = ({ open, onClose }) => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => {            
+          onSubmit={(values) => {
             onSaveAsPending(values);
           }}
         >
@@ -51,7 +59,7 @@ const CreateInvoiceForm = ({ open, onClose }) => {
               <Fields />
               <ItemsTable name="items" />
               <CreateInvoiceActions
-                onDiscard={onDiscard}
+                onDiscard={onClose}
                 onSaveAsDraft={() => onSaveAsDraft(formik.values)}
                 onSaveAsPending={formik.handleSubmit}
               />
