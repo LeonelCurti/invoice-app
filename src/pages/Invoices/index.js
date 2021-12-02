@@ -32,6 +32,7 @@ const Invoices = () => {
         <Container maxWidth="md">
           <Header
             filter={filter}
+            invoicesLength={filteredInvoices.length}
             setFilter={setfilter}
             onOpenForm={handleOpen}
           />

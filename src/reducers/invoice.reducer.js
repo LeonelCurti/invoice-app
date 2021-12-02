@@ -21,6 +21,15 @@ const reducer = (state, action) => {
             }
           : invoice
       );
+    case "CHANGE_STATUS":
+      return state.map((invoice) =>
+        invoice.id === action.id
+          ? {
+              ...invoice,
+              status: action.status,
+            }
+          : invoice
+      );
     case "DELETE":
       return state.filter((invoice) => invoice.id !== action.id);
     default:

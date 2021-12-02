@@ -12,17 +12,16 @@ import {
 
 const Header = ({ invoice: { id, status }, onEdit }) => {
   const dispatch = useContext(DispatchContext);
-  const history = useHistory();  
+  const history = useHistory();
 
   const onDelete = () => {
     dispatch({ type: "DELETE", id });
     history.push("/invoices");
   };
-  const onMarkAsPaid = () =>
-    dispatch({ type: "EDIT", id, payload: { status: "paid" } });
+  const onMarkAsPaid = () => dispatch({ type: "CHANGE_STATUS", id, status: "paid" });
 
   const onMarkAsPending = () =>
-    dispatch({ type: "EDIT", id, payload: { status: "pending" } });
+    dispatch({ type: "CHANGE_STATUS", id, status: "pending" });
 
   return (
     <Card

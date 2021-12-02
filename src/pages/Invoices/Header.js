@@ -4,15 +4,15 @@ import { useTheme } from "@mui/material/styles";
 import Add from "@mui/icons-material/Add";
 import Dropdown from "./Dropdown";
 import { ButtonStyle } from "../../components/shared/Buttons";
+import { invoicesMessage } from "../../utils";
 
-const Header = ({ onOpenForm, filter, setFilter }) => {
+const Header = ({ onOpenForm, filter, setFilter, invoicesLength }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
-  const handleFilter = (event) => {    
+  const handleFilter = (event) => {
     setFilter(event.target.value);
   };
-
 
   return (
     <Box display="flex" alignItems="center">
@@ -21,7 +21,7 @@ const Header = ({ onOpenForm, filter, setFilter }) => {
           Invoices
         </Typography>
         <Typography color="textSecondary">
-          {matches ? "There are 7 total invoices" : "7 invoices"}
+          {invoicesMessage(invoicesLength, matches)}
         </Typography>
       </Box>
       <Box display="flex" gap={2} alignItems="center">

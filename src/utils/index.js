@@ -32,3 +32,27 @@ export const calcTotalAmount = (items) => {
     .reduce((accum, item) => accum + item.qty * item.price, 0)
     .toFixed(2);
 };
+
+export function invoicesMessage(num, isDesktop) {
+  if (isDesktop) {
+    if (num === 0) {
+      return `There are no invoices`;
+    } else if (num === 1) {
+      return "There is 1 invoice";
+    } else if (num === 1) {
+      return `There is 1 invoice`;
+    } else {
+      return `There are ${num} invoices`;
+    }
+  } else {
+    if (num === 0) {
+      return `No invoices`;
+    } else if (num === 1) {
+      return "1 invoice";
+    } else if (num === 1) {
+      return `1 invoice`;
+    } else {
+      return `${num} invoices.`;
+    }
+  }
+}
