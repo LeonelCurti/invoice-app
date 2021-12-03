@@ -1,9 +1,9 @@
 # Invoice App
-<img src='./public/images/1.png' width='175px' />
-<img src='./public/images/2.png' width='175px' />
-<img src='./public/images/3.png' width='175px' />
-<img src='./public/images/4.png' width='175px' />
-<img src='./public/images/5.png' width='175px' />
+<img src='./public/images/1.png' width='500px' />
+<img src='./public/images/2.png' width='500px' />
+<img src='./public/images/3.png' width='500px' />
+<img src='./public/images/4.png' width='500px' />
+<img src='./public/images/5.png' width='500px' />
 
 ## Overview
 
